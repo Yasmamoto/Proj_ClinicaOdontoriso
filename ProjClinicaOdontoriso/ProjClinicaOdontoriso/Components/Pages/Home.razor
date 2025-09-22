@@ -1,7 +1,59 @@
 ﻿@page "/"
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Menu</PageTitle>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odontoriso</title>
+    <link rel="stylesheet" href="Css/styleMenu/menu.css">
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="pagMenu" id="menu">
+    <div class="container">
 
-<h1>Hello, world!</h1>
+        <!-- Lado esquerdo -->
+        <div class="left" id="leftMenu">
+            <img src="Img/destista.jpg" alt="dentista" class="bg-img">
+            <img src="Img/logopreta.png" alt="logo consultorio" class="Logo">
 
-Welcome to your new app.
+        </div>
+
+        <!-- Lado direito -->
+        <div class="right" id="rightMenu">
+            <div class="user">
+                <i class="fa-solid fa-user-circle"></i>
+                <span>user_name</span>
+            </div>
+
+            <div class="menu">
+                <div class="card">
+                    <i class="fa-solid fa-users"></i>
+                    <p>Paciente</p>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-id-badge"></i>
+                    <p>Funcionário</p>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-user-doctor"></i>
+                    <p>Dentista</p>
+                </div>
+                <div class="card active">
+                    <i class="fa-solid fa-file-pen"></i>
+                    <p>Questionario <br> Anamnese</p>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-sitemap"></i>
+                    <p>Gerenciamento de <br> procedimento</p>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <p>Agendamento</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
