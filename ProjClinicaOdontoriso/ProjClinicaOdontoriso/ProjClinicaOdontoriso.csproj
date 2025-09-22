@@ -6,4 +6,19 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Configs\" />
+    <Folder Include="Models\Funcionario\" />
+    <Folder Include="Models\Anamnese\" />
+    <Folder Include="Models\Consulta\" />
+    <Folder Include="Models\Procedimento\" />
+    <Folder Include="Models\Paciente\" />
+    <Folder Include="wwwroot\Css\styleAnamnese\" />
+    <Folder Include="wwwroot\Css\styleProcedimento\" />
+    <Folder Include="wwwroot\Css\stylePaciente\" />
+    <Folder Include="wwwroot\Css\styleConsulta\" />
+    <Folder Include="wwwroot\Css\styleFuncionario\" />
+    <Folder Include="wwwroot\Img\" />
+  </ItemGroup>
+
 </Project>
