@@ -100,7 +100,6 @@ font-family: Arial, Helvetica, sans-serif;
     }
 
     .card p {
-        color: #074639;
         font-size: 15px;
         font-weight: bold;
     }
@@ -109,6 +108,7 @@ font-family: Arial, Helvetica, sans-serif;
         background: rgba(0, 70, 70, 0.35);
         transform: scale(1.05);
     }
+
 .active {
     border: 2px solid #0a6970;
     background: rgba(0, 70, 70, 0.3);
