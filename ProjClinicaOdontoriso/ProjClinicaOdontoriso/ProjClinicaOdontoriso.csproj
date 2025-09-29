@@ -16,15 +16,7 @@
     <Folder Include="wwwroot\Css\styleAnamnese\" />
     <Folder Include="wwwroot\Css\styleProcedimento\" />
     <Folder Include="wwwroot\Css\stylePaciente\" />
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
     <Folder Include="wwwroot\Css\styleFuncionario\" />
-=======
-    <Folder Include="wwwroot\Css\styleConsulta\" />
->>>>>>> Stashed changes
-=======
-    <Folder Include="wwwroot\Css\styleConsulta\" />
->>>>>>> Stashed changes
     <Folder Include="wwwroot\Img\" />
   </ItemGroup>
 
