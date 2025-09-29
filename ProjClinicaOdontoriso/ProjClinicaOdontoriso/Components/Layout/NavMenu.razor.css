@@ -60,7 +60,7 @@
     }
 
     .nav-item ::deep .nav-link {
-        color: black;
+        color: #106363;
         background: none;
         border: none;
         border-radius: 4px;
@@ -78,7 +78,7 @@
 
 .nav-item ::deep .nav-link:hover {
     background-color: rgba(255,255,255,0.1);
-    color: white;
+    color: ;
 }
 
 .nav-scrollable {
