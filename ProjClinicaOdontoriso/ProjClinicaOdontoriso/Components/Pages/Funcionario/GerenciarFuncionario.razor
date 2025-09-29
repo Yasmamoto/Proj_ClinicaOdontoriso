@@ -1,5 +1,93 @@
 ﻿@page "/GerenciarFuncionario"
-<h3>GerenciarFuncionario</h3>
+
+<PageTitle>Gerenciamento de Funcionarios</PageTitle>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/Css/styleFuncionario/">
+</head>
+<body>
+    <form>
+        <div class="funcionariopg1">
+            <h1>Adicionar dados do Funcionario</h1>
+            <label for="name">Nome:</label>
+            <input type="text" id="nome_fu" />
+            <label for="date">Data de Nascimento:</label>
+			<input type="date" id="data_nasc_fu" />
+            <label for="sexo">Sexo:</label>
+            <select name="sexo" id="sexo">
+                <option value="" disabled selected>Selecione</option>
+                <option value="femi">Feminino</option>
+				<option value="masc">Masculino</option>
+            </select>
+            <label for="cpf">CPF:</label>
+			<input type="text" id="cpf_fu" />
+			<label for="rg">RG:</label>
+			<input type="text" id="rg_fu" />
+            <label for="raca">Raça</label>
+            <select name="raca" id="raca">
+                <option value="" disabled selected>Selecione</option>
+                <option value="branco">Branco(a)</option>
+                <option value="pardo">Pardo(a)</option>
+                <option value="preto">Preto(a)</option>
+                <option value="amarelo">Amarelo(a)</option>
+                <option value="vermelho">Vermelho(a)</option>
+            </select>
+            <label for="email">E-mail:</label>
+            <input type="text" id="email_fu"/>
+			<label for="telefone">Telefone:</label>
+            <input type="text" id="telefone_fu" />
+            <label for="nascion">Nascionalidade:</label>
+            <input type="text"/>
+            <label for="estado">Estados:</label>
+            <select id="estado" name="estado" required>
+                <option value="" disabled selected>Selecione</option>
+                <option value="acre">AC</option>
+                <option value="alagoas">AL</option>
+                <option value="AP">AP</option>
+                <option value="AM">AM</option>
+                <option value="BA">BA</option>
+                <option value="CE">CE</option>
+                <option value="DF">DF</option>
+                <option value="ES">ES</option>
+                <option value="GO">GO</option>
+                <option value="MA">MA</option>
+                <option value="MT">MT</option>
+                <option value="MS">MS</option>
+                <option value="MG">MG</option>
+                <option value="PA">PA</option>
+                <option value="PB">PB</option>
+                <option value="PR">PR</option>
+                <option value="PE">PE</option>
+                <option value="PI">PI</option>
+                <option value="RJ">RJ</option>
+                <option value="RN">RN</option>
+                <option value="RS">RS</option>
+                <option value="RO">RO</option>
+                <option value="RR">RR</option>
+                <option value="SC">SC</option>
+                <option value="SP">SP</option>
+                <option value="SE">SE</option>
+                <option value="TO">TO</option>
+            </select>
+			<label for="cidade">Cidade:</label>
+            <input type="text" />
+            <label for="endereco">Endereço</label>
+            <input type="text" />
+            <label for="estadoCivil">Estado civil:</label>
+            <select id="estadoCivil" name="estadoCivil" required>
+                <option value="" disabled selected>Selecione</option>
+                <option value="solteiro">Solteiro(a)</option>
+                <option value="casado">Casado(a)</option>
+                <option value="separado">Separado(a)</option>
+                <option value="divorciado">Divorciado(a)</option>
+                <option value="viuvo">Viúvo(a)</option>
+            </select>
+
+        </div>
+    </form>
+</body>
+</html>
 
 @code {
 
