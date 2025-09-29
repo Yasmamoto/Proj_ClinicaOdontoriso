@@ -9,6 +9,8 @@ rg_fun varchar(15),
 cnpj_fun varchar(30),
 data_nascimento_fun date,
 telefone_fun varchar(30),
+estado_fun varchar(10),
+cidade_fun varchar(300),
 endereco_fun varchar(300),
 email_fun varchar(150),
 cargo_fun varchar(30)
