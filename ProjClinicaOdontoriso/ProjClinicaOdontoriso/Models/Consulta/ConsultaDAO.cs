@@ -18,8 +18,8 @@ namespace ProjClinicaOdontoriso.Models
             {
                 var comando = _conexao.CreateCommand("INSERT INTO consulta VALUES (null, @_horario, @_data, null, null, null)");
 
-                comando.Parameters.AddWithValue("@_horario", consulta.Horario.TimeOfDay); // pega só o horário
-                comando.Parameters.AddWithValue("@_data", consulta.Data.Date); // pega só a data
+                comando.Parameters.AddWithValue("@_horario", consulta.Horario.TimeOfDay);
+                comando.Parameters.AddWithValue("@_data", consulta.Data.Date);
 
                 comando.ExecuteNonQuery();
             }
@@ -43,10 +43,8 @@ namespace ProjClinicaOdontoriso.Models
                 {
                     Id = leitor.GetInt32("id_con"),
 
-                    // Pega apenas o horário do campo TIME e transforma num DateTime usando a data de hoje
                     Horario = DateTime.Today + leitor.GetTimeSpan("horario_con"),
 
-                    // Já está correto — data_con vem como DateTime
                     Data = leitor.GetDateTime("data_con")
                 };
 
