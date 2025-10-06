@@ -118,3 +118,12 @@ VALUES ('Clareamento Dental', '01:30:00', 'Tratamento estético para clarear os 
 
 INSERT INTO Procedimento (nome_pro, tempo_pro, descricao_pro, valor_pro)
 VALUES ('Extração de Dente', '00:40:00', 'Remoção de dente comprometido ou que causa desconforto ao paciente.', 200.00);
+
+INSERT INTO Consulta (horario_con, data_con, id_pac_fk)
+VALUES ('09:30:00', '2025-10-10', 1);
+
+INSERT INTO Consulta (horario_con, data_con, id_pac_fk)
+VALUES ('14:00:00', '2025-10-11', 2);
+
+INSERT INTO Consulta (horario_con, data_con, id_pac_fk)
+VALUES ('10:15:00', '2025-10-12', 3);
