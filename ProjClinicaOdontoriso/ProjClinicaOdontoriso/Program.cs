@@ -1,10 +1,15 @@
 using ProjClinicaOdontoriso.Components;
+using ProjClinicaOdontoriso.Configs;
+using ProjClinicaOdontoriso.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
 	.AddInteractiveServerComponents();
+
+builder.Services.AddScoped<Conexao>();
+builder.Services.AddScoped<ConsultaDAO>();
 
 var app = builder.Build();
 

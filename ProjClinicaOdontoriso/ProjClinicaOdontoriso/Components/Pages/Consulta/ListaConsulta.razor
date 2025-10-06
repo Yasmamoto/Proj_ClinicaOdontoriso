@@ -1,0 +1,53 @@
+﻿@page "/Gerenciar Consulta"
+
+@using ProjClinicaOdontoriso.Models;
+@inject ConsultaDAO consultaDAO
+
+
+<PageTitle>Consultas</PageTitle>
+
+
+<h1 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-6">Consultas</h1>
+
+<a href="/consulta/nova" class="btn btn-sm btn-primary">Nova Consulta</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Horário</th>
+            <th>Procedimento</th>
+            <th>Paciente</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @{
+            int contador = 1;
+            @foreach (var consulta in listaConsultas)
+            {
+                <tr>
+                    <td>@contador</td>
+                    <td>@consulta.Horario</td>
+                    <td>@consulta.Data</td>
+                </tr>
+
+                contador++;
+            }
+        }
+    </tbody>
+</table>
+
+@code {
+    private List<Consulta> listaConsultas = new();
+
+    protected override void OnInitialized()
+    {
+        CarregarConsultas();
+    }
+
+    private void CarregarConsultas()
+    {
+        listaConsultas = consultaDAO.ListarTodos();
+    }
+}
