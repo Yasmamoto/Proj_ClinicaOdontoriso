@@ -4,8 +4,8 @@
     {
         public int Id { get; set; }
 
-        public TimeOnly Horario { get; set; }
+        public DateTime Horario { get; set; }
 
-        public DateOnly Data { get; set; }
+        public DateTime Data { get; set; }
     }
 }

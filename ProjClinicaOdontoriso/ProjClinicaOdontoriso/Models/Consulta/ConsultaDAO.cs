@@ -18,8 +18,8 @@ namespace ProjClinicaOdontoriso.Models
             {
                 var comando = _conexao.CreateCommand("INSERT INTO consulta VALUES (null, @_horario, @_data, null, null, null)");
 
-                comando.Parameters.AddWithValue("@_horario", consulta.Horario);
-                comando.Parameters.AddWithValue("@_data", consulta.Data);
+                comando.Parameters.AddWithValue("@_horario", consulta.Horario.TimeOfDay); // pega só o horário
+                comando.Parameters.AddWithValue("@_data", consulta.Data.Date); // pega só a data
 
                 comando.ExecuteNonQuery();
             }
@@ -28,6 +28,7 @@ namespace ProjClinicaOdontoriso.Models
                 throw;
             }
         }
+
 
         public List<Consulta> ListarTodos()
         {
@@ -41,8 +42,12 @@ namespace ProjClinicaOdontoriso.Models
                 var consulta = new Consulta
                 {
                     Id = leitor.GetInt32("id_con"),
-                    Horario = TimeOnly.FromTimeSpan(leitor.GetTimeSpan("horario_con")),
-                    Data = DateOnly.FromDateTime(leitor.GetDateTime("data_con"))
+
+                    // Pega apenas o horário do campo TIME e transforma num DateTime usando a data de hoje
+                    Horario = DateTime.Today + leitor.GetTimeSpan("horario_con"),
+
+                    // Já está correto — data_con vem como DateTime
+                    Data = leitor.GetDateTime("data_con")
                 };
 
                 lista.Add(consulta);
@@ -50,5 +55,6 @@ namespace ProjClinicaOdontoriso.Models
 
             return lista;
         }
+
     }
 }

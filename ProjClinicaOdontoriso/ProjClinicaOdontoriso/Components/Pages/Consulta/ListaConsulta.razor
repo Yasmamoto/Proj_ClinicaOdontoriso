@@ -27,8 +27,8 @@
             {
                 <tr>
                     <td>@contador</td>
-                    <td>@consulta.Horario</td>
-                    <td>@consulta.Data</td>
+                    <td>@consulta.Horario.ToString(@"hh\:mm")</td>
+                    <td>@consulta.Data.ToString("dd/MM/yyyy")</td>
                 </tr>
 
                 contador++;

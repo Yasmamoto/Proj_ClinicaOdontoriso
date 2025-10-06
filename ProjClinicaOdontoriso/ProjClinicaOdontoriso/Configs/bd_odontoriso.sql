@@ -127,3 +127,23 @@ VALUES ('14:00:00', '2025-10-11', 2);
 
 INSERT INTO Consulta (horario_con, data_con, id_pac_fk)
 VALUES ('10:15:00', '2025-10-12', 3);
+
+INSERT INTO consulta (horario_con, data_con) VALUES ('09:00:00', '2025-10-10');
+
+TRUNCATE TABLE consulta;
+
+INSERT INTO consulta (horario_con, data_con, id_pro_fk, id_pac_fk, id_den_fk) VALUES
+('09:30:00', '2025-10-07', NULL, NULL, NULL),
+('14:00:00', '2025-10-08', NULL, NULL, NULL),
+('16:15:00', '2025-10-09', NULL, NULL, NULL);
+
+TRUNCATE TABLE consulta;
+
+INSERT INTO Consulta (horario_con, data_con, id_pro_fk)
+VALUES ('09:30:00', '2025-10-10', 1);
+
+INSERT INTO Consulta (horario_con, data_con, id_pro_fk)
+VALUES ('14:00:00', '2025-10-11', 2);
+
+INSERT INTO Consulta (horario_con, data_con, id_pro_fk)
+VALUES ('10:15:00', '2025-10-12', 3);
