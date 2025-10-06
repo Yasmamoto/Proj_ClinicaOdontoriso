@@ -1,6 +1,72 @@
 ﻿@page "/GerenciarPaciente"
-<h3>GerenciarPaciente</h3>
+
+@using ProjClinicaOdontoriso.Models;
+@inject PacienteDAO pacienteDAO
+
+<a href="/GerenciarPaciente/novo" class="btn btn-sm btn-primary">Novo Paciente</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th> Quantidade </th>
+            <th>Nome</th>
+            <th>Data Nascimento</th>
+            <th>Idade</th>
+            <th>Local de Nascimento</th>
+            <th>RG</th>
+            <th>CPF</th>
+            <th>Endereço</th>
+            <th>Telefone</th>
+            <th>Profissão</th>
+            <th>Estado Civil</th>
+            <th>E-mail</th>
+            <th>Sexo</th>
+            <th>Raça</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @{
+            int contador = 1;
+            @foreach (var paciente in listaPaciente)
+            {
+                <tr>
+                    <td>@contador</td>
+                    <td>@paciente.Nome</td>
+                    <td>@paciente.DataNascimento</td>
+                    <td>@paciente.Idade</td>
+                    <td>@paciente.LocalNascimento</td>
+                    <td>@paciente.RG</td>
+                    <td>@paciente.CPF</td>
+                    <td>@paciente.Endereco</td>
+                    <td>@paciente.Telefone</td>
+                    <td>@paciente.Profissao</td>
+                    <td>@paciente.EstadoCivil</td>
+                    <td>@paciente.Email</td>
+                    <td>@paciente.Sexo</td>
+                    <td>@paciente.Raca</td>
+                   
+                </tr>
+                contador++;
+            }
+        }
+
+    </tbody>
+
+</table>
+
 
 @code {
+    private List<Paciente> listaPaciente = new();
 
+    protected override void OnInitialized()
+    {
+        CarregarProdutos();
+    }
+
+    private void CarregarProdutos()
+    {
+        listaPaciente = pacienteDAO.ListarTodos();
+    }
 }
