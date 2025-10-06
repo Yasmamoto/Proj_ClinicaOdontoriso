@@ -109,3 +109,12 @@ VALUES('João Pereira Lima', '1985-11-23', 'Masculino', '987.654.321-00', '12.34
     'Preta', 'ana.costa@email.com', '(31) 97777-6666', 'Brasileira', 'MG', 'Belo Horizonte',
     'Rua das Palmeiras, 200', 'Solteira', 'Assistente Administrativa', '2022-09-01', 2500.00,
     'CTPS98765', 'Sim', 1, 'Ensino Médio Completo');
+
+INSERT INTO Procedimento (nome_pro, tempo_pro, descricao_pro, valor_pro)
+VALUES ('Limpeza Dental', '00:45:00', 'Procedimento de remoção de placas e tártaro para manutenção da saúde bucal.', 120.00);
+
+INSERT INTO Procedimento (nome_pro, tempo_pro, descricao_pro, valor_pro)
+VALUES ('Clareamento Dental', '01:30:00', 'Tratamento estético para clarear os dentes utilizando produtos específicos.', 350.00);
+
+INSERT INTO Procedimento (nome_pro, tempo_pro, descricao_pro, valor_pro)
+VALUES ('Extração de Dente', '00:40:00', 'Remoção de dente comprometido ou que causa desconforto ao paciente.', 200.00);
