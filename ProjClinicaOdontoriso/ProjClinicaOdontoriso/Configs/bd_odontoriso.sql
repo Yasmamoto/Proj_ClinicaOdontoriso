@@ -147,3 +147,7 @@ VALUES ('14:00:00', '2025-10-11', 2);
 
 INSERT INTO Consulta (horario_con, data_con, id_pro_fk)
 VALUES ('10:15:00', '2025-10-12', 3);
+
+DROP TABLE Consulta;
+
+DROP TABLE Procedimento;
