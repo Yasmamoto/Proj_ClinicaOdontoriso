@@ -11,6 +11,7 @@ builder.Services.AddRazorComponents()
 builder.Services.AddScoped<Conexao>();
 builder.Services.AddScoped<ConsultaDAO>();
 builder.Services.AddScoped<PacienteDAO>();
+builder.Services.AddScoped<ProcedimentoDAO>();
 
 
 var app = builder.Build();

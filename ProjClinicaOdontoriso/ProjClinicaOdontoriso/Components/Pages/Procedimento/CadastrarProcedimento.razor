@@ -1,0 +1,56 @@
+﻿@page "/Gerenciar Procedimento"
+
+@using ProjClinicaOdontoriso.Models;
+@inject ProcedimentoDAO procedimentoDAO
+
+
+<PageTitle>Procedimentos</PageTitle>
+
+
+<h1 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-6">Procedimentos</h1>
+
+<a href="/procedimento/novo" class="btn btn-sm btn-primary">Novo Procedimento</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nome</th>
+            <th>Tempo</th>
+            <th>Descricao</th>
+            <th>Valor</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @{
+            int contador = 1;
+            @foreach (var procedimento in listaProcedimentos)
+            {
+                <tr>
+                    <td>@contador</td>
+                    <td>@procedimento.Nome</td>
+                    <td>@procedimento.Tempo.ToString(@"hh\:mm")</td>
+                    <td>@procedimento.Descricao</td>
+                    <td>@procedimento.Valor</td>
+                </tr>
+
+                contador++;
+            }
+        }
+    </tbody>
+</table>
+
+@code {
+    private List<Procedimento> listaProcedimentos = new();
+
+    protected override void OnInitialized()
+    {
+        CarregarProcedimentos();
+    }
+
+    private void CarregarProcedimentos()
+    {
+        listaProcedimentos = procedimentoDAO.ListarTodos();
+    }
+}
