@@ -1,7 +1,6 @@
 ﻿#fundoForm {
     background-color: #85BEB4;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
@@ -11,4 +10,5 @@
     width: 800px;
     background-color: #78B1AC;
     border-radius: 8px;
+    justify-content: center;
 }
