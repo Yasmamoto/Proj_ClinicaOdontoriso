@@ -19,7 +19,7 @@ namespace ProjClinicaOdontoriso.Models
                 var comando = _conexao.CreateCommand("INSERT INTO procedimento VALUES (null, @_nome, @_tempo, @_descricao, @_valor)");
 
                 comando.Parameters.AddWithValue("@_nome", procedimento.Nome);
-                comando.Parameters.AddWithValue("@_tempo", procedimento.Tempo);
+                comando.Parameters.AddWithValue("@_tempo", procedimento.Tempo.TimeOfDay);
                 comando.Parameters.AddWithValue("@_descricao", procedimento.Descricao);
                 comando.Parameters.AddWithValue("@_valor", procedimento.Valor);
 
@@ -44,7 +44,7 @@ namespace ProjClinicaOdontoriso.Models
                 {
                     Id = leitor.GetInt32("id_pro"),
                     Nome = leitor.GetString("nome_pro"),
-                    Tempo = TimeOnly.FromTimeSpan(leitor.GetTimeSpan("tempo_pro")),
+                    Tempo = DateTime.Today + leitor.GetTimeSpan("tempo_pro"),
                     Descricao = leitor.IsDBNull(leitor.GetOrdinal("descricao_pro")) ? "" : leitor.GetString("descricao_pro"),
                     Valor = leitor.GetFloat("valor_pro")
                 };

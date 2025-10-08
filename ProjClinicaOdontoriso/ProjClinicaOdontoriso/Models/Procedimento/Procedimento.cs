@@ -6,7 +6,7 @@
 
         public string? Nome { get; set; }
 
-        public TimeOnly Tempo { get; set; }
+        public DateTime Tempo { get; set; }
         public string? Descricao { get; set; }
         public float Valor { get; set; }
     }
