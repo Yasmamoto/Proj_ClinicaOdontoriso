@@ -42,10 +42,8 @@ namespace ProjClinicaOdontoriso.Models
                 var consulta = new Consulta
                 {
                     Id = leitor.GetInt32("id_con"),
-
-                    Horario = DateTime.Today + leitor.GetTimeSpan("horario_con"),
-
-                    Data = leitor.GetDateTime("data_con")
+                    Horario = leitor.IsDBNull(leitor.GetOrdinal("horario_con")) ? DateTime.Today : DateTime.Today + leitor.GetTimeSpan("horario_con"),
+                    Data = leitor.IsDBNull(leitor.GetOrdinal("data_con")) ? DateTime.Today : leitor.GetDateTime("data_con")
                 };
 
                 lista.Add(consulta);

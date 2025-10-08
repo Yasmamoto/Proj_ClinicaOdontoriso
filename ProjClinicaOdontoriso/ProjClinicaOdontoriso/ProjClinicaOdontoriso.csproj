@@ -20,7 +20,6 @@
   <ItemGroup>
     <Folder Include="Configs\" />
     <Folder Include="Models\Anamnese\" />
-    <Folder Include="wwwroot\Css\styleConsulta\" />
     <Folder Include="wwwroot\Css\stylePaciente\" />
     <Folder Include="wwwroot\Css\styleFuncionario\" />
     <Folder Include="wwwroot\Img\" />

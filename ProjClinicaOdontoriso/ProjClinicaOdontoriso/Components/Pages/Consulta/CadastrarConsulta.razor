@@ -7,29 +7,28 @@
 
 <PageTitle>Consulta - Nova</PageTitle>
 
-<h1 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-6">Nova Consulta</h1>
+<link rel="stylesheet" href="/Css/styleConsulta/StyleCadastrarConsulta.css">
 
-<div class="row">
-    <div class="col">
-        <form>
-            <div class="form-group mb-4">
-                <label>Horário</label>
-                <input @bind="_novaConsulta.Horario" type="time" class="form-control" name="horario" placeholder="Informe o horário da consulta" />
-            </div>
+<h1>Nova Consulta</h1>
 
-            <div class="form-group mb-4">
-                <label>Procedimento</label>
-                <input @bind="_novaConsulta.Data" type="date" class="form-control" name="data" placeholder="Informe a data da consulta" />
-            </div>
-
-            <button @onclick="Salvar" class="btn btn-primary">Salvar</button>
-        </form>
+<form>
+    <div class="form-group">
+        <label>Horário:</label>
+        <input @bind="_novaConsulta.Horario" type="time" class="form-control" name="horario" />
     </div>
-</div>
+
+    <div class="form-group">
+        <label>Procedimento:</label>
+        <input @bind="_novaConsulta.Data" type="date" class="form-control" name="data" />
+    </div>
+
+    <div class="form-buttons">
+        <button type="button" class="btn-voltar" @onclick="@(() => Navigation.NavigateTo("/Gerenciar Consulta"))">Voltar</button>
+        <button type="button" class="btn-primary" @onclick="Salvar">Salvar</button>
+    </div>
+</form>
 
 @code {
-    private string? erro = null;
-
     private Consulta _novaConsulta = new();
 
     private void Salvar()
@@ -37,12 +36,10 @@
         try
         {
             consultaDAO.Inserir(_novaConsulta);
-
             Navigation.NavigateTo("/Gerenciar Consulta");
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-
         }
     }
 }

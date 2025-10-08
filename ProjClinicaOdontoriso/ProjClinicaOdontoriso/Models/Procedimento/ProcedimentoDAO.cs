@@ -43,10 +43,10 @@ namespace ProjClinicaOdontoriso.Models
                 var procedimento = new Procedimento
                 {
                     Id = leitor.GetInt32("id_pro"),
-                    Nome = leitor.GetString("nome_pro"),
-                    Tempo = DateTime.Today + leitor.GetTimeSpan("tempo_pro"),
+                    Nome = leitor.IsDBNull(leitor.GetOrdinal("nome_pro")) ? "" : leitor.GetString("nome_pro"),
+                    Tempo = leitor.IsDBNull(leitor.GetOrdinal("tempo_pro")) ? DateTime.Today : DateTime.Today + leitor.GetTimeSpan("tempo_pro"),
                     Descricao = leitor.IsDBNull(leitor.GetOrdinal("descricao_pro")) ? "" : leitor.GetString("descricao_pro"),
-                    Valor = leitor.GetFloat("valor_pro")
+                    Valor = leitor.IsDBNull(leitor.GetOrdinal("valor_pro")) ? 0 : leitor.GetFloat("valor_pro")
                 };
 
                 lista.Add(procedimento);
