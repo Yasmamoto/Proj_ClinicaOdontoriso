@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\Css\styleConsulta\styleConsultacss.cs" />
+    <Content Remove="wwwroot\Css\styleProcedimento\StyleCadastrarProcedimento.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -15,7 +16,6 @@
     <Folder Include="Models\Anamnese\" />
     <Folder Include="wwwroot\Css\styleAnamnese\" />
     <Folder Include="wwwroot\Css\styleConsulta\" />
-    <Folder Include="wwwroot\Css\styleProcedimento\" />
     <Folder Include="wwwroot\Css\stylePaciente\" />
     <Folder Include="wwwroot\Css\styleFuncionario\" />
     <Folder Include="wwwroot\Img\" />
