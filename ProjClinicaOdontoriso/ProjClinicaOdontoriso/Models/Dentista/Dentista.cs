@@ -1,4 +1,4 @@
-﻿namespace ProjClinicaOdontoriso.Models
+﻿/*namespace ProjClinicaOdontoriso.Models
 {
     public class Dentista
     {
@@ -9,3 +9,4 @@
         public string? Especialidade { get; set; }
     }
 }
+*/
