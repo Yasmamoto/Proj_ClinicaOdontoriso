@@ -9,7 +9,7 @@
 
 <link rel="stylesheet" href="/Css/styleConsulta/StyleCadastrarConsulta.css">
 
-<h1>Nova Consulta</h1>
+<h1>Adicionar Consulta</h1>
 
 <form>
     <div class="form-group">
@@ -18,7 +18,7 @@
     </div>
 
     <div class="form-group">
-        <label>Procedimento:</label>
+        <label for="date">Data:</label>
         <input @bind="_novaConsulta.Data" type="date" class="form-control" name="data" />
     </div>
 
@@ -30,6 +30,12 @@
 
 @code {
     private Consulta _novaConsulta = new();
+
+    protected override void OnInitialized()
+    {
+        _novaConsulta.Data = DateTime.Today;
+        _novaConsulta.Horario = DateTime.Now;
+    }
 
     private void Salvar()
     {
