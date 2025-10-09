@@ -13,14 +13,13 @@ form {
     background-color: #78B1AC;
     padding: 40px 60px;
     border-radius: 20px;
-    width: 100vw;
-    height: 70vh;
+    width: 70vw;
+    height: 80vh;
     margin: 40px auto;
 }
 
 .form-group {
-    margin-top: 20px;
-    margin-bottom: 70px;
+    margin-bottom: 20px;
 }
 
 label {
@@ -72,7 +71,7 @@ button {
     background-color: #a1d7cb;
 }
 
-input[type="text"], input[type="time"], input[type="time"]:focus {
+input[type="text"]:focus, input[type="time"]:focus{
     outline: none !important;
     background-color: #85BEB4;
     border: 2px solid #074B35;
