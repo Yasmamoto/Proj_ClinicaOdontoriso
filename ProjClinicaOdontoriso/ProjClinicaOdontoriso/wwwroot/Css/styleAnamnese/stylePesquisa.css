@@ -38,10 +38,14 @@
     margin-bottom: 20px;
 }
 
-.container-pesquisa button {
+.container-pesquisa a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     width: 150px;
     height: 40px;
-    border-radius: 30px;
+    border-radius: 10px;
     border: none;
     background-color: #004F41;
     color: white;
