@@ -1,1 +1,54 @@
-﻿
+﻿@page "/GerenciarDentista"
+
+@using ProjClinicaOdontoriso.Models.Dentista;
+@inject DentistaDAO dentistaDAO;
+
+<PageTitle>Dentista</PageTitle>
+
+<h1>Destista</h1>
+<a href="/CadastrarDentista" class="btn btn-sm btn-primary">Novo Dentista</a>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Nome</th>
+			<th>CPF</th>
+			<th>Data de Admissão</th>
+			<th>Salário Inicial</th>
+			<th>Carteira de Trabalho</th>
+			<th>CRO</th>
+			<th>Especialidade</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var dentista in listardentista)
+		{
+			<tr>
+				<td>@dentista.Id</td>
+				<td>@dentista.Nome</td>
+				<td>@dentista.CPF</td>
+				<td>@dentista.DataAdmissao</td>
+				<td>@dentista.SalarioInicial</td>
+				<td>@dentista.CTPS</td>
+				<td>@dentista.CRO</td>
+				<td>@dentista.Especialidade</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+@code {
+	private List<Dentista> listardentista = new();
+
+	protected override void OnInitialized()
+	{
+		CarregarDentista();
+	}
+
+	private void CarregarDentista()
+	{
+
+		listardentista = dentistaDAO.ListarDentis();
+	}
+}

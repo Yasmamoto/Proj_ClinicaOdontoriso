@@ -1,8 +1,5 @@
-<<<<<<< Updated upstream
-﻿/*namespace ProjClinicaOdontoriso.Models
-=======
+
 ﻿namespace ProjClinicaOdontoriso.Models.Dentista
->>>>>>> Stashed changes
 {
     public class Dentista
     {
@@ -35,4 +32,3 @@
 
     }
 }
-*/
