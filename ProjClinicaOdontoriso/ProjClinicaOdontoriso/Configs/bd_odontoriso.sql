@@ -156,3 +156,45 @@ DROP TABLE Procedimento;
 DELETE FROM Procedimento WHERE (id_pro > 6);
 
 DELETE FROM Consulta WHERE (id_con > 5);
+
+DROP TABLE Consulta;
+
+DROP TABLE Procedimento;
+
+create table Procedimento(
+id_pro int primary key auto_increment,
+nome_pro varchar(50),
+tempo_pro time,
+descricao_pro varchar(500),
+valor_pro float
+);
+
+create table Consulta(
+id_con int primary key auto_increment,
+horario_con time,
+data_con date,
+id_pro_fk int,
+foreign key (id_pro_fk) references Procedimento (id_pro),
+id_pac_fk int,
+foreign key (id_pac_fk) references Paciente (id_pac),
+id_den_fk int,
+foreign key (id_den_fk) references Dentista (id_den)
+);
+
+INSERT INTO Procedimento (nome_pro, tempo_pro, descricao_pro, valor_pro)
+VALUES ('Limpeza Dental', '00:45:00', 'Procedimento de remoção de placas e tártaro para manutenção da saúde bucal.', 120.00);
+
+INSERT INTO Procedimento (nome_pro, tempo_pro, descricao_pro, valor_pro)
+VALUES ('Clareamento Dental', '01:30:00', 'Tratamento estético para clarear os dentes utilizando produtos específicos.', 350.00);
+
+INSERT INTO Procedimento (nome_pro, tempo_pro, descricao_pro, valor_pro)
+VALUES ('Extração de Dente', '00:40:00', 'Remoção de dente comprometido ou que causa desconforto ao paciente.', 200.00);
+
+INSERT INTO Consulta (horario_con, data_con, id_pro_fk)
+VALUES ('09:30:00', '2025-10-10', 1);
+
+INSERT INTO Consulta (horario_con, data_con, id_pro_fk)
+VALUES ('14:00:00', '2025-10-11', 2);
+
+INSERT INTO Consulta (horario_con, data_con, id_pro_fk)
+VALUES ('10:15:00', '2025-10-12', 3);
