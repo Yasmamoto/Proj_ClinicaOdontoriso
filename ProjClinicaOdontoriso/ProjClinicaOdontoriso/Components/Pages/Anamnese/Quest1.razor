@@ -1,0 +1,37 @@
+@page "/Anamnese/Quest1.html"
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionario Anamnese</title>
+    <link rel="stylesheet" href="/Css/styleAnamnese/styleQuestionario.css">
+</head>
+<body id="fundoform">
+    <div class="container-questionario">
+        <h1>Questionário de Anamnese</h1>
+        <form>
+            <p>1. Você está com boa saúde?</p>
+            <input type="radio" name="saude" value="sim">Sim
+            <input type="radio" name="saude" value="nao">Não
+            <textarea name="detalhes" rows="2" cols="50" placeholder="Se não, por favor, forneça detalhes"></textarea>
+            <p></p>
+            <p>2. Houve alguma mudança na sua saúde geral no último ano?</p>
+            <input type="radio" name="mudanca" value="sim">Sim
+            <input type="radio" name="mudanca" value="nao">Não
+            <textarea name="detalhes" rows="2" cols="50" placeholder="Se sim, por favor, forneça detalhes"></textarea>
+            <p>3.Esteve hospitalizado(a) nos dois últimos anos?</p>
+            <input type="radio" name="hospital" value="sim">Sim
+            <input type="radio" name="hospital" value="nao">Não
+            <textarea name="detalhes" rows="2" cols="50" placeholder="Se sim, por favor, forneça detalhes"></textarea>
+        </form>
+            <div id="voltar">
+                <a href="/Anamnese/GerenciarAnamnese" class="btn btn-sm btn-primary"> >> Voltar </a>
+            </div>
+            <div id="avancar">
+                <a href="/Anamnese/Quest2.html" class="btn btn-sm btn-primary">Avançar >></a>
+            </div>
+        </div>
+</body>
+</html>
