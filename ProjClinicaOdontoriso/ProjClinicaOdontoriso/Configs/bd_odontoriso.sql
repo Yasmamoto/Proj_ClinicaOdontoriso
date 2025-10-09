@@ -24,6 +24,7 @@ CREATE TABLE Funcionario (
     recebe_salario_familia_fun VARCHAR(5),
     qtd_filhos_fun INT,
     escolaridade_fun VARCHAR(50)
+);
 
 create table Dentista(
 id_den int primary key auto_increment,
@@ -151,3 +152,7 @@ VALUES ('10:15:00', '2025-10-12', 3);
 DROP TABLE Consulta;
 
 DROP TABLE Procedimento;
+
+DELETE FROM Procedimento WHERE (id_pro > 6);
+
+DELETE FROM Consulta WHERE (id_con > 5);
