@@ -1,6 +1,7 @@
 using ProjClinicaOdontoriso.Components;
 using ProjClinicaOdontoriso.Configs;
 using ProjClinicaOdontoriso.Models;
+using ProjClinicaOdontoriso.Models.Funcionario;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,7 @@ builder.Services.AddScoped<Conexao>();
 builder.Services.AddScoped<ConsultaDAO>();
 builder.Services.AddScoped<PacienteDAO>();
 builder.Services.AddScoped<ProcedimentoDAO>();
+builder.Services.AddScoped<FuncionarioDAO>();
 
 
 var app = builder.Build();

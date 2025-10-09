@@ -24,5 +24,7 @@
         public string? RecebeSalarioFamilia { get; set; }
         public int? QuantidadeFilhos { get; set; }
         public string? Escolaridade { get; set; }
+        
+
     }
 }

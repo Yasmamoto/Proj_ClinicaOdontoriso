@@ -13,7 +13,7 @@ namespace ProjClinicaOdontoriso.Models.Dentista
         {
             try
             {
-                var comando = _conexao.CreateCommand("INSERT INTO dentista VALUES (null,@_nome_dent, @_data_nascimento_dent, @_sexo_dent, @_cpf_dent, @_rg_dent, @_titulo_eleitor_dent, @_raca_dent, @_email_dent, @_telefone_dent,@_nacionalidade_dent, @_estado_civil_dent, @_estado_dent, @_cidade_dent, @_endereco_dent, @_cargo_dent, @_data_admissao_dent, @_salario_inicial_dent, @_ctps_dent, @_recebe_salario_familia_dent, @_qtd_filhos_dent, @_faculdade_dent, @_data_conclusao_dent, @_cro_dent, @_especialidade_dent, @_cnpj_dent)");
+                var comando = _conexao.CreateCommand("INSERT INTO dentista VALUES (null,@_nome_dent, @_data_nascimento_dent, @_sexo_dent, @_cpf_dent, @_rg_dent, @_titulo_eleitor_dent, @_raca_dent, @_email_dent, @_telefone_dent,@_nacionalidade_dent, @_estado_civil_dent, @_estado_dent, @_cidade_dent, @_endereco_dent, @_data_admissao_dent, @_salario_inicial_dent, @_ctps_dent, @_recebe_salario_familia_dent, @_qtd_filhos_dent, @_faculdade_dent, @_data_conclusao_dent, @_cro_dent, @_especialidade_dent, @_cnpj_dent)");
                 comando.Parameters.AddWithValue("@_nome_dent", dentista.Nome);
                 comando.Parameters.AddWithValue("@_data_nascimento_dent", dentista.DataNascimento?.ToString("yyyy-MM-dd"));
                 comando.Parameters.AddWithValue("@_sexo_dent", dentista.Sexo);
@@ -28,7 +28,6 @@ namespace ProjClinicaOdontoriso.Models.Dentista
                 comando.Parameters.AddWithValue("@_estado_dent", dentista.Estado);
                 comando.Parameters.AddWithValue("@_cidade_dent", dentista.Cidade);
                 comando.Parameters.AddWithValue("@_endereco_dent", dentista.Endereco);
-                comando.Parameters.AddWithValue("@_cargo_dent", dentista.Cargo);
                 comando.Parameters.AddWithValue("@_data_admissao_dent", dentista.DataAdmissao?.ToString("yyyy-MM-dd"));
                 comando.Parameters.AddWithValue("@_salario_inicial_dent", dentista.SalarioInicial);
                 comando.Parameters.AddWithValue("@_ctps_dent", dentista.CTPS);

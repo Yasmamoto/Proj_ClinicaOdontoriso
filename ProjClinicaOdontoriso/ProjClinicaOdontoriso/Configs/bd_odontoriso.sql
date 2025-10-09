@@ -1,38 +1,59 @@
 create database bd_odontoriso;
 use bd_odontoriso;
 
-CREATE TABLE Funcionario (
-    id_fun INT PRIMARY KEY AUTO_INCREMENT,
-    nome_fun VARCHAR(300),
-    data_nascimento_fun DATE,
-    sexo_fun VARCHAR(20),
-    cpf_fun VARCHAR(15),
-    rg_fun VARCHAR(15),
-    titulo_eleitor_fun VARCHAR(30),
-    raca_fun VARCHAR(20),
-    email_fun VARCHAR(150),
-    telefone_fun VARCHAR(30),
-    nacionalidade_fun VARCHAR(100),
-    estado_fun VARCHAR(5),
-    cidade_fun VARCHAR(150),
-    endereco_fun VARCHAR(300),
-    estado_civil_fun VARCHAR(20),
-    cargo_fun VARCHAR(100),
-    data_admissao_fun DATE,
-    salario_inicial_fun DECIMAL(10,2),
-    ctps_fun VARCHAR(50),
-    recebe_salario_familia_fun VARCHAR(5),
-    qtd_filhos_fun INT,
-    escolaridade_fun VARCHAR(50)
+
+   CREATE TABLE Funcionario (
+    id_fun int primary key auto_increment,
+    nome_fun varchar(300),
+    data_nascimento_fun date,
+    sexo_fun varchar(20),
+    cpf_fun varchar(15),
+    rg_fun varchar(15),
+    titulo_eleitor_fun varchar(30),
+    raca_fun varchar(20),
+    nacionalidade_fun varchar(100),
+    estado_civil_fun varchar(30), 
+    email_fun varchar(300),       
+    telefone_fun varchar(30),     
+    estado_fun varchar(5),
+    cidade_fun varchar(150),
+    endereco_fun varchar(300),
+    
+    cargo_fun varchar(100),
+    data_admissao_fun date,
+    salario_inicial_fun float,
+    ctps_fun varchar(50),
+    recebe_salario_familia_fun varchar(5),
+    qtd_filhos_fun int,
+    escolaridade_fun varchar(50)
 );
 
 create table Dentista(
-id_den int primary key auto_increment,
-cro_den varchar(50),
-especialidade_den varchar(300),
-id_fun_fk int not null,
-foreign key (id_fun_fk) references Funcionario (id_fun)
-);
+id_dent int primary key auto_increment,
+nome_dent varchar(300),
+data_nascimento_den date,
+sexo_dent varchar(20), 
+cpf_dent varchar(15), 
+rg_dent varchar(15), 
+titulo_eleitor_dent varchar(30), 
+raca_dent varchar(20), 
+nacionalidade_dent varchar(100), 
+estado_civil_dent varchar(30), 
+email_dent varchar(300), 
+telefone_dent varchar(30), 
+estado_dent varchar(5), 
+cidade_dent varchar(150), 
+endereco_dent varchar(300), 
+data_admissao_dent date, 
+salario_inicial_dent float,
+ctps_dent varchar(50), 
+recebe_sala_fml_dent varchar(5), 
+qtd_filhos_dent int, 
+faculdade_dent varchar(50), 
+data_conclusao_dent date,
+cro_dent varchar(30), 
+especialidade_dent varchar(500), 
+cnpj_dent varchar(30) );
 
 create table Procedimento(
 id_pro int primary key auto_increment,

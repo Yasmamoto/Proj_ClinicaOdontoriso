@@ -1,144 +1,56 @@
 ﻿@page "/GerenciarFuncionario"
 
-<PageTitle>Gerenciamento de Funcionarios</PageTitle>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="/Css/styleFuncionario/cadastrofunc.css">
-</head>
-<body id="fundoForm">
-    <form>
-        <div class="funcionariocadastro">
-            <h1>Adicionar dados do Funcionario</h1>
+@using ProjClinicaOdontoriso.Models.Funcionario;
+@inject FuncionarioDAO funcionarioDAO;
 
-            <label for="name">Nome:</label>
-            <input type="text" class="form-control" id="nome_fu" />
+<PageTitle>Funcionários</PageTitle>
 
-            <label for="date">Data de Nascimento:</label>
-			<input type="date" id="data_nasc_fu" />
+<h1>Funcionario</h1>
+<a href="/CadastrarFuncionario" class="btn btn-sm btn-primary">Novo Funcionário</a>
 
-            <label for="sexo">Sexo:</label>
-            <select name="sexo" id="sexo">
-                <option value="" disabled selected>Selecione</option>
-                <option value="femi">Feminino</option>
-				<option value="masc">Masculino</option>
-            </select>
-
-            <label for="cpf">CPF:</label>
-			<input type="text" id="cpf_fu" />
-
-			<label for="rg">RG:</label>
-            <input type="text" id="rg_fu" />
-
-            <label for="titulo" id="titulo">Titulo de Eleitor:</label>
-            <input type="text" />
-
-            <label for="raca">Raça</label>
-            <select name="raca" id="raca">
-                <option value="" disabled selected>Selecione</option>
-                <option value="branco">Branco(a)</option>
-                <option value="pardo">Pardo(a)</option>
-                <option value="preto">Preto(a)</option>
-                <option value="amarelo">Amarelo(a)</option>
-                <option value="vermelho">Vermelho(a)</option>
-            </select>
-
-            <label for="email">E-mail:</label>
-            <input type="text" id="email_fu"/>
-
-			<label for="telefone">Telefone:</label>
-            <input type="text" id="telefone_fu" />
-
-            <label for="nascion">Nascionalidade:</label>
-            <input type="text"/>
-
-            <label for="estado">Estados:</label>
-            <select id="estado" name="estado" required>
-                <option value="" disabled selected>Selecione</option>
-                <option value="acre">AC</option>
-                <option value="alagoas">AL</option>
-                <option value="AP">AP</option>
-                <option value="AM">AM</option>
-                <option value="BA">BA</option>
-                <option value="CE">CE</option>
-                <option value="DF">DF</option>
-                <option value="ES">ES</option>
-                <option value="GO">GO</option>
-                <option value="MA">MA</option>
-                <option value="MT">MT</option>
-                <option value="MS">MS</option>
-                <option value="MG">MG</option>
-                <option value="PA">PA</option>
-                <option value="PB">PB</option>
-                <option value="PR">PR</option>
-                <option value="PE">PE</option>
-                <option value="PI">PI</option>
-                <option value="RJ">RJ</option>
-                <option value="RN">RN</option>
-                <option value="RS">RS</option>
-                <option value="RO">RO</option>
-                <option value="RR">RR</option>
-                <option value="SC">SC</option>
-                <option value="SP">SP</option>
-                <option value="SE">SE</option>
-                <option value="TO">TO</option>
-            </select>
-
-			<label for="cidade">Cidade:</label>
-            <input type="text" />
-
-            <label for="endereco">Endereço</label>
-            <input type="text" />
-
-            <label for="estadoCivil">Estado civil:</label>
-            <select id="estadoCivil" name="estadoCivil" required>
-                <option value="" disabled selected>Selecione</option>
-                <option value="solteiro">Solteiro(a)</option>
-                <option value="casado">Casado(a)</option>
-                <option value="separado">Separado(a)</option>
-                <option value="divorciado">Divorciado(a)</option>
-                <option value="viuvo">Viúvo(a)</option>
-            </select>
-
-            <label for="cargo" id="cargo">Cargo:</label>
-            <input type="text" />
-
-            <label for="dataadim" id="dataadim">Data de Adimissão:</label>
-            <input type="date" />
-
-            <label for="salario" id="salario">Salario Inicial:</label>
-            <input type="tel" />
-
-            <label for="ctps" id="ctps">Carteira de Trabalho(CTPS):</label>
-            <input type="text" />
-
-            <label for="salafamilia" id="salafamilia">Recebe salario familia?</label>
-            <select name="soun" required>
-                <option value="" disabled selected>Selecione</option>
-                <option value="sim">Sim</option>
-                <option value="nao">Não</option>
-            </select>
-            <label for="filho" id="quatfilho">Quantidade de filhos(menor de 14 ou Invalido)</label>
-            <input type="number" />
-            <label for="escola" id="escola">Escolaridade</label>
-            <select name="escolaridade">
-                <option value="" disabled selected>Selecione</option>
-                <option value="incompleto">Ensino Fundamental Incompleto</option>
-                <option value="fundamentalCompleto">Ensino Fundamental Completo</option>
-                <option value="medioincompleto">Ensino Médio Incompleto</option>
-                <option value="mediocompleto">Ensino Médio Completo</option>
-                <option value="superiorincom">Ensino Superior Incompleto</option>
-                <option value="superiorcomple">Ensino Superior Completo</option>
-                <option value="naoinfor">Não Informado</option>
-            </select>
-
-
-        </div>
-    </form>
-    
-</body>
-</html>
+<table class="table">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Nome</th>
+			<th>Data de Nascimento</th>
+			<th>CPF</th>
+			<th>RG</th>
+			<th>Cargo</th>
+			<th>Data de Admissão</th>
+			<th>Salário Inicial</th>
+			<th>Carteira de Trabalho</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var funcionario in listarfuncionario)
+		{
+			<tr>
+				<td>@funcionario.Id</td>
+				<td>@funcionario.Nome</td>
+				<td>@funcionario.DataNascimento</td>
+				<td>@funcionario.CPF</td>
+				<td>@funcionario.RG</td>
+				<td>@funcionario.Cargo</td>
+				<td>@funcionario.DataAdmissao</td> 
+				<td>@funcionario.SalarioInicial</td> 
+				<td>@funcionario.CTPS</td>
+			</tr>
+		}
+	</tbody>
+</table>
 
 @code {
+	private List<Funcionario> listarfuncionario = new();
 
+	protected override void OnInitialized()
+	{
+		CarregarFuncionarios();
+	}
+
+	private void CarregarFuncionarios()
+	{
+		
+		listarfuncionario = funcionarioDAO.ListarFunc();
+	}
 }

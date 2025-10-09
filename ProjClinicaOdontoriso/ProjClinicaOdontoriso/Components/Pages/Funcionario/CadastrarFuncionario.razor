@@ -1,0 +1,229 @@
+﻿@page "/CadastrarFuncionario"
+@rendermode InteractiveServer
+
+@using ProjClinicaOdontoriso.Models.Funcionario;
+@inject FuncionarioDAO funcionarioDAO;
+@inject NavigationManager Navigation;
+
+<PageTitle>Gerenciamento de Funcionários</PageTitle>
+
+<link rel="stylesheet" href="/Css/styleFuncionario/cadastrofunc.css">
+
+@if (erro != null)
+{
+    <div class="alert alert-danger">@erro</div>
+}
+
+<div class="row">
+    <div class="col">
+        <h1>Adicionar Funcionário</h1>
+
+        <EditForm Model="_novoFuncionario" OnSubmit="Salvar">
+
+            <div class="form-group mb-4">
+                <label for="nome_fu">Nome:</label>
+                <input @bind="_novoFuncionario.Nome" type="text" class="form-control" id="nome_fu" />
+            </div>
+
+
+            <div class="form-group mb-4">
+                <label for="data_nasc_fu">Data de Nascimento:</label>
+                <input @bind="_novoFuncionario.DataNascimento" type="date" class="form-control" id="data_nasc_fu" />
+            </div>
+
+
+            <div class="form-group mb-4">
+                <label for="sexo">Sexo:</label>
+                <select @bind="_novoFuncionario.Sexo" class="form-control" id="sexo">
+                    <option value="" disabled>Selecione</option>
+                    <option value="feminino">Feminino</option>
+                    <option value="masculino">Masculino</option>
+                </select>
+            </div>
+
+            <div class="form-group mb-4">
+                <label for="cpf_fu">CPF:</label>
+                <input @bind="_novoFuncionario.CPF" type="text" class="form-control" id="cpf_fu" />
+            </div>
+
+
+            <div class="form-group mb-4">
+                <label for="rg_fu">RG:</label>
+                <input @bind="_novoFuncionario.RG" type="text" class="form-control" id="rg_fu" />
+            </div>
+
+            <div class="form-group mb-4">
+                <label for="titulo">Título de Eleitor:</label>
+                <input @bind="_novoFuncionario.TituloEleitor" type="text" class="form-control" id="titulo" />
+            </div>
+
+
+            <div class="form-group mb-4">
+                <label for="raca">Raça:</label>
+                <select @bind="_novoFuncionario.Raca" class="form-control" id="raca">
+                    <option value="" disabled>Selecione</option>
+                    <option value="branco">Branco(a)</option>
+                    <option value="pardo">Pardo(a)</option>
+                    <option value="preto">Preto(a)</option>
+                    <option value="amarelo">Amarelo(a)</option>
+                    <option value="vermelho">Vermelho(a)</option>
+                </select>
+            </div>
+
+
+            <div class="form-group mb-4">
+                <label for="nacionalidade">Nacionalidade:</label>
+                <input @bind="_novoFuncionario.Nacionalidade" type="text" class="form-control" id="nacionalidade" />
+            </div>
+
+
+            <div class="form-group mb-4">
+                <label for="estadoCivil">Estado Civil:</label>
+                <select @bind="_novoFuncionario.EstadoCivil" class="form-control" id="estadoCivil">
+                    <option value="" disabled>Selecione</option>
+                    <option value="solteiro">Solteiro(a)</option>
+                    <option value="casado">Casado(a)</option>
+                    <option value="separado">Separado(a)</option>
+                    <option value="divorciado">Divorciado(a)</option>
+                    <option value="viuvo">Viúvo(a)</option>
+                </select>
+            </div>
+
+
+            <div class="form-group mb-4">
+                <label for="email_fu">E-mail:</label>
+                <input @bind="_novoFuncionario.Email" type="email" class="form-control" id="email_fu" />
+            </div>
+
+
+            <div class="form-group mb-4">
+                <label for="telefone_fu">Telefone:</label>
+                <input @bind="_novoFuncionario.Telefone" type="text" class="form-control" id="telefone_fu" />
+            </div>
+
+            <div class="form-group mb-4">
+                <label for="estado">Estado:</label>
+                <select @bind="_novoFuncionario.Estado" class="form-control" id="estado">
+                    <option value="" disabled>Selecione</option>
+                    <option value="AC">AC</option>
+                    <option value="AL">AL</option>
+                    <option value="AP">AP</option>
+                    <option value="AM">AM</option>
+                    <option value="BA">BA</option>
+                    <option value="CE">CE</option>
+                    <option value="DF">DF</option>
+                    <option value="ES">ES</option>
+                    <option value="GO">GO</option>
+                    <option value="MA">MA</option>
+                    <option value="MT">MT</option>
+                    <option value="MS">MS</option>
+                    <option value="MG">MG</option>
+                    <option value="PA">PA</option>
+                    <option value="PB">PB</option>
+                    <option value="PR">PR</option>
+                    <option value="PE">PE</option>
+                    <option value="PI">PI</option>
+                    <option value="RJ">RJ</option>
+                    <option value="RN">RN</option>
+                    <option value="RS">RS</option>
+                    <option value="RO">RO</option>
+                    <option value="RR">RR</option>
+                    <option value="SC">SC</option>
+                    <option value="SP">SP</option>
+                    <option value="SE">SE</option>
+                    <option value="TO">TO</option>
+                </select>
+            </div>
+
+
+            <div class="form-group mb-4">
+                <label for="cidade">Cidade:</label>
+                <input @bind="_novoFuncionario.Cidade" type="text" class="form-control" id="cidade" />
+            </div>
+
+
+            <div class="form-group mb-4">
+                <label for="endereco">Endereço:</label>
+                <input @bind="_novoFuncionario.Endereco" type="text" class="form-control" id="endereco" />
+            </div>
+
+
+            <div class="form-group mb-4">
+                <label for="cargo">Cargo:</label>
+                <input @bind="_novoFuncionario.Cargo" type="text" class="form-control" id="cargo" />
+            </div>
+
+
+            <div class="form-group mb-4">
+                <label for="dataadim">Data de Admissão:</label>
+                <input @bind="_novoFuncionario.DataAdmissao" type="date" class="form-control" id="dataadim" />
+            </div>
+
+
+            <div class="form-group mb-4">
+                <label for="salario">Salário Inicial:</label>
+                <input @bind="_novoFuncionario.SalarioInicial" type="number" step="0.01" class="form-control" id="salario" />
+            </div>
+
+            <div class="form-group mb-4">
+                <label for="ctps">Carteira de Trabalho (CTPS):</label>
+                <input @bind="_novoFuncionario.CTPS" type="text" class="form-control" id="ctps" />
+            </div>
+
+
+            <div class="form-group mb-4">
+                <label for="salafamilia">Recebe salário família?</label>
+                <select @bind="_novoFuncionario.RecebeSalarioFamilia" class="form-control" id="salafamilia">
+                    <option value="" disabled>Selecione</option>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
+                </select>
+            </div>
+
+            <div class="form-group mb-4">
+                <label for="quatfilho">Quantidade de filhos (menores de 14 ou inválidos):</label>
+                <input @bind="_novoFuncionario.QuantidadeFilhos" type="number" class="form-control" id="quatfilho" />
+            </div>
+
+            <div class="form-group mb-4">
+                <label for="escola">Escolaridade:</label>
+                <select @bind="_novoFuncionario.Escolaridade" class="form-control" id="escola">
+                    <option value="" disabled>Selecione</option>
+                    <option value="fundamental_incompleto">Ensino Fundamental Incompleto</option>
+                    <option value="fundamental_completo">Ensino Fundamental Completo</option>
+                    <option value="medio_incompleto">Ensino Médio Incompleto</option>
+                    <option value="medio_completo">Ensino Médio Completo</option>
+                    <option value="superior_incompleto">Ensino Superior Incompleto</option>
+                    <option value="superior_completo">Ensino Superior Completo</option>
+                    <option value="nao_informado">Não Informado</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    private string? erro = null;
+
+    [SupplyParameterFromForm]
+    private Funcionario _novoFuncionario { get; set; } = new();
+
+    private void Salvar()
+    {
+        try
+        {
+            if (string.IsNullOrWhiteSpace(_novoFuncionario.Nome))
+                throw new Exception("O campo nome é obrigatório.");
+
+            funcionarioDAO.InserirFunc(_novoFuncionario);
+            Navigation.NavigateTo("/GerenciarFuncionario");
+        }
+        catch (Exception ex)
+        {
+            erro = ex.Message;
+            StateHasChanged();
+        }
+    }
+}
