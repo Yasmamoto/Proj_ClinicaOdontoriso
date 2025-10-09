@@ -6,9 +6,19 @@
 
 
 .container-pesquisa {
+    margin-top: 45px;
+    margin-left: 100px;
     height: 500px;
     width: 800px;
     background-color: #78B1AC;
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+}
+
+.container-pesquisa h1 {
+    color: white;
+    margin-bottom: 20px;
 }
