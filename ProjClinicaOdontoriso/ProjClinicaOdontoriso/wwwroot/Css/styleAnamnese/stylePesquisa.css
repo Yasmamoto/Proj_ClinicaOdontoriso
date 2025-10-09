@@ -6,14 +6,13 @@
     align-items: center;
 }
 
-
 .container-pesquisa {
     margin-top: 45px;
     margin-left: 100px;
     height: 500px;
     width: 800px;
     background-color: #78B1AC;
-    border-radius: 8px;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,12 +28,28 @@
     margin-bottom: 20px;
 }
 
-container-pesquisa input {
-    width: 400px;
+.container-pesquisa input {
+    width: 490px;
     height: 40px;
-    border-radius: 8px;
+    border-radius: 50px;
     border: none;
     padding: 0 10px;
     font-size: 16px;
     margin-bottom: 20px;
+}
+
+.container-pesquisa button {
+    width: 150px;
+    height: 40px;
+    border-radius: 30px;
+    border: none;
+    background-color: #004F41;
+    color: white;
+    cursor: pointer;
+    font-family: "Luxurious Roman", serif;
+    font-weight: 400;
+    font-style: normal;
+    position: absolute;
+    right: 100px;
+    bottom: 100px;
 }
