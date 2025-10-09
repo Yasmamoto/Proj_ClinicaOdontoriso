@@ -4,17 +4,15 @@
 }
 
 h1 {
-  display: none;
-}
-
-a.btn-primary {
-  display: none;
+    color: #074B35;
+    font-weight: 200;
+    margin-bottom: 30px;
 }
 
 .table {
   width: 80%;
   margin: 40px auto;
-  background-color: #89c9be;
+  background-color: #78B1AC;
   border-collapse: separate;
   border-spacing: 0;
   border-radius: 12px;
@@ -23,62 +21,25 @@ a.btn-primary {
 }
 
 .table thead {
-  background-color: #7bb9ae;
-  color: #003b36;
+  background-color: #78B1AC;
   font-weight: bold;
   font-size: 18px;
 }
 
 .table th, .table td {
   padding: 14px;
-  color: #003b36;
-  border: none;
-}
-
-.table tbody tr:nth-child(even) {
-  background-color: rgba(255, 255, 255, 0.15);
+  color: #105D47;
 }
 
 .table tbody tr:hover {
   background-color: rgba(255, 255, 255, 0.25);
 }
 
-.filtro-barra {
-  width: 80%;
-  margin: 20px auto;
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  background-color: #9ccfc4;
-  border-radius: 50px;
-  padding: 8px 16px;
-}
-
-.filtro-barra select,
-.filtro-barra input[type="text"] {
-  background-color: transparent;
-  border: none;
-  color: #003b36;
-  font-size: 16px;
-  outline: none;
-  appearance: none;
-  text-align: center;
-}
-
 .botoes-inferiores {
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
   width: 80%;
-  margin: 40px auto 0;
-}
-
-.botao-voltar {
-  background-color: #cde8e2;
-  color: #003b36;
-  border: 1px solid #003b36;
-  border-radius: 10px;
-  padding: 10px 30px;
-  font-size: 18px;
+  margin: 40px auto 20px;
 }
 
 .botao-adicionar {
@@ -89,11 +50,6 @@ a.btn-primary {
   padding: 10px 30px;
   font-size: 18px;
 }
-
-.botao-voltar:hover {
-  background-color: #b2dbd4;
-}
-
 .botao-adicionar:hover {
   background-color: #004f42;
 }

@@ -1,22 +1,16 @@
 ﻿@page "/Gerenciar Procedimento"
+@rendermode InteractiveServer
 
 @using ProjClinicaOdontoriso.Models;
 @inject ProcedimentoDAO procedimentoDAO
+@inject NavigationManager Navigation;
 
 
 <PageTitle>Procedimentos</PageTitle>
 
 <link rel="stylesheet" href="Css/styleProcedimento/StyleListarProcedimento.css">
 
-<h1 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-6">Procedimentos</h1>
-
-<div class="date-bar">
-    <select>
-        <option>Procedimento</option>
-    </select>
-
-    <span class="search">🔍</span>
-</div>
+<h1>Procedimentos</h1>
 
 <table class="table">
     <thead>
@@ -24,7 +18,7 @@
             <th>#</th>
             <th>Nome</th>
             <th>Tempo</th>
-            <th>Descricao</th>
+            <th>Descrição</th>
             <th>Valor</th>
         </tr>
     </thead>
@@ -48,7 +42,9 @@
     </tbody>
 </table>
 
-<a href="/procedimento/novo" class="btn btn-sm btn-primary">Novo Procedimento</a>
+<div class="botoes-inferiores">
+    <button type="button" class="botao-adicionar" @onclick="@(() => Navigation.NavigateTo("/procedimento/novo"))">Novo Procedimento</button>
+</div>
 
 @code {
     private List<Procedimento> listaProcedimentos = new();

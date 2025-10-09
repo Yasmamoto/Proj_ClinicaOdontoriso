@@ -1,4 +1,5 @@
 ﻿@page "/Gerenciar Consulta"
+@rendermode InteractiveServer
 
 @using ProjClinicaOdontoriso.Models;
 @inject ConsultaDAO consultaDAO
@@ -9,28 +10,7 @@
 
 <link rel="stylesheet" href="/Css/styleConsulta/StyleListarConsulta.css">
 
-<h1 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-6">Consultas</h1>
-
-<div class="filtro-barra">
-    <select>
-        <option>04</option>
-        <option>05</option>
-        <option>06</option>
-    </select>
-
-    <select>
-        <option>Agosto</option>
-        <option>Setembro</option>
-        <option>Outubro</option>
-    </select>
-
-    <select>
-        <option>2025</option>
-        <option>2026</option>
-    </select>
-
-    <input type="text" placeholder="🔍" />
-</div>
+<h1>Consultas</h1>
 
 <table class="table">
     <thead>
@@ -59,8 +39,7 @@
 </table>
 
 <div class="botoes-inferiores">
-    <a href="/Gerenciar Consulta" class="botao-voltar">Voltar</a>
-    <a href="/consulta/nova" class="botao-adicionar">Nova Consulta</a>
+    <button type="button" class="botao-adicionar" @onclick="@(() => Navigation.NavigateTo("/consulta/nova"))">Nova Consulta</button>
 </div>
 
 @code {
