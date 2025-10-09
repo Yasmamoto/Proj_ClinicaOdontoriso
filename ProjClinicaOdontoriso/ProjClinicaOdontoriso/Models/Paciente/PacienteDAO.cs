@@ -16,14 +16,18 @@ namespace ProjClinicaOdontoriso.Models
         {
             try
             {
-                var comando = _conexao.CreateCommand("INSERT INTO paciente VALUES (null, @_nome, @_data_nascimento, @_idade, @_localNascimento, @_rg, @_cpf, @_endereco, @_telefone, @_profissao, @_estadoCivil, @_email, @_sexo, @_raca, null)");
-
+                var comando = _conexao.CreateCommand(@" INSERT INTO paciente (nome_pac, data_nascimento_pac, idade_pac, local_nascimento_pac, rg_pac, cpf_pac, 
+                 endereco_pac, telefone_pac, profissao_pac, estado_civil_pac, email_pac, sexo_pac, raca_pac, id_resp_fk)
+                  VALUES (@_nome, @_data_nascimento, @_idade, @_localNascimento, @_rg, @_cpf, @_endereco, 
+                  @_telefone, @_profissao, @_estadoCivil, @_email, @_sexo, @_raca, null)"
+                );
                 comando.Parameters.AddWithValue("@_nome", paciente.Nome);
-                comando.Parameters.AddWithValue("@_data_nascimento", paciente.DataNascimento);
+                comando.Parameters.AddWithValue("@_data_nascimento", paciente.DataNascimento.ToDateTime(TimeOnly.MinValue));
+                comando.Parameters.AddWithValue("@_idade", paciente.Idade);
                 comando.Parameters.AddWithValue("@_localNascimento", paciente.LocalNascimento);
                 comando.Parameters.AddWithValue("@_rg", paciente.RG);
                 comando.Parameters.AddWithValue("@_cpf", paciente.CPF);
-                comando.Parameters.AddWithValue(" @_endereco", paciente.Endereco);
+                comando.Parameters.AddWithValue("@_endereco", paciente.Endereco);
                 comando.Parameters.AddWithValue("@_telefone", paciente.Telefone);
                 comando.Parameters.AddWithValue("@_profissao", paciente.Profissao);
                 comando.Parameters.AddWithValue("@_estadoCivil", paciente.EstadoCivil);
@@ -33,11 +37,13 @@ namespace ProjClinicaOdontoriso.Models
 
                 comando.ExecuteNonQuery();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine($"Erro ao inserir paciente: {ex.Message}");
                 throw;
             }
         }
+
         public List<Paciente> ListarTodos()
         {
             var lista = new List<Paciente>();
@@ -50,22 +56,23 @@ namespace ProjClinicaOdontoriso.Models
                var dataNascimento = leitor.GetDateTime("data_nascimento_pac");
 
                 var paciente = new Paciente
-                { 
-                    Id = leitor.GetInt32("id_pac"),
-                    Nome = leitor.GetString("nome_pac"),
-                    DataNascimento = DateOnly.FromDateTime(dataNascimento),
-                    Idade = leitor.GetInt32("idade_pac"),
-                    LocalNascimento = leitor.GetString("local_nascimento_pac"),
-                    RG = leitor.GetString("rg_pac"),
-                    CPF = leitor.GetString("cpf_pac"),
-                    Endereco = leitor.GetString("endereco_pac"),
-                    Telefone = leitor.GetString("telefone_pac"),
-                    Profissao = leitor.GetString("profissão_pac"),
-                    EstadoCivil = leitor.GetString("estado_civil_pac"),
-                    Email = leitor.GetString("email_pac"),
+                {
+                    Id = leitor.IsDBNull(leitor.GetOrdinal("id_pac")) ? 0 : leitor.GetInt32("id_pac"),
+                    Nome = leitor.IsDBNull(leitor.GetOrdinal("nome_pac")) ? "" : leitor.GetString("nome_pac"),
+                    DataNascimento = leitor.IsDBNull(leitor.GetOrdinal("data_nascimento_pac"))? DateOnly.FromDateTime(DateTime.MinValue): DateOnly.FromDateTime(leitor.GetDateTime("data_nascimento_pac")),
+                    Idade =  leitor.GetInt32("idade_pac"),
+                    LocalNascimento =  leitor.GetString("local_nascimento_pac"),
+                    RG =  leitor.GetString("rg_pac"),
+                    CPF =  leitor.GetString("cpf_pac"),
+                    Endereco =  leitor.GetString("endereco_pac"),
+                    Telefone =  leitor.GetString("telefone_pac"),
+                    Profissao = leitor.GetString("profissao_pac"),
+                    EstadoCivil =leitor.GetString("estado_civil_pac"),
+                    Email =  leitor.GetString("email_pac"),
                     Sexo = leitor.GetString("sexo_pac"),
-                    Raca = leitor.GetString("raca_pac"),
+                    Raca =  leitor.GetString("raca_pac"),
                 };
+
 
                 lista.Add(paciente);
             }
