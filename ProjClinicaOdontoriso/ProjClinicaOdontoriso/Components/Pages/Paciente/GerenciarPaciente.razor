@@ -1,6 +1,6 @@
 ﻿@page "/GerenciarPaciente"
 
-@using ProjClinicaOdontoriso.Models;
+@using ProjClinicaOdontoriso.Models.Paciente
 @inject PacienteDAO pacienteDAO
 
 <a href="/GerenciarPaciente/novo" class="btn btn-sm btn-primary">Novo Paciente</a>
@@ -67,6 +67,6 @@
 
     private void CarregarProdutos()
     {
-        listaPaciente = pacienteDAO.ListarTodos();
+        listaPaciente = pacienteDAO.ListarPaciente();
     }
 }

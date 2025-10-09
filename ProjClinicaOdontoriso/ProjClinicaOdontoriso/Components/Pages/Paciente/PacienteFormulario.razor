@@ -1,6 +1,6 @@
 ﻿@page "/GerenciarPaciente/novo"
 @rendermode InteractiveServer
-@using ProjClinicaOdontoriso.Models;
+@using ProjClinicaOdontoriso.Models.Paciente;
 @inject PacienteDAO pacienteDAO;
 @inject NavigationManager navigation;
 
@@ -20,52 +20,52 @@
          <EditForm Model="_novoPaciente" OnSubmit="Salvar">
             <div class="form-group mb-4">
                 <label>Nome</label>
-                <input @bind-value="_novoPaciente.Nome" type="text" class="form-control" name="nome" placeholder="Informe o nome do Paciente" />
+                <input @bind="_novoPaciente.Nome" type="text" class="form-control" name="nome" placeholder="Informe o nome do Paciente" />
             </div>
             
             <div class="form-group mb-4">
                 <label>Data Nascimento</label>
-                <input @bind-value="_novoPaciente.DataNascimento" type="date" class="form-control" name="dataNascimento" placeholder="Informe a Data do Nascimento do Paciente" />
+                <input @bind="_novoPaciente.DataNascimento" type="date" class="form-control" name="dataNascimento" placeholder="Informe a Data do Nascimento do Paciente" />
             </div>
 
             <div class="form-group mb-4">
                 <label>Idade</label>
-                <input @bind-value="_novoPaciente.Idade" type="int" class="form-control" name="idade" placeholder="Informe a idade do Paciente" />
+                <input @bind="_novoPaciente.Idade" type="int" class="form-control" name="idade" placeholder="Informe a idade do Paciente" />
             </div>
 
             <div class="form-group mb-4">
                 <label>Local Nascimento</label>
-                <input @bind-value="_novoPaciente.LocalNascimento" type="text" class="form-control" name="localNascimento" placeholder="Informe o local de Nascimento do Paciente" />
+                <input @bind="_novoPaciente.LocalNascimento" type="text" class="form-control" name="localNascimento" placeholder="Informe o local de Nascimento do Paciente" />
             </div>
 
             <div class="form-group mb-4">
                 <label>RG</label>
-                <input @bind-value="_novoPaciente.RG" type="text" class="form-control" name="RG" placeholder="Informe o RG do Paciente" />
+                <input @bind="_novoPaciente.RG" type="text" class="form-control" name="RG" placeholder="Informe o RG do Paciente" />
             </div>
 
             <div class="form-group mb-4">
                 <label>CPF</label>
-                <input @bind-value="_novoPaciente.CPF" type="text" class="form-control" name="CPF" placeholder="Informe o CPF do Paciente" />
+                <input @bind="_novoPaciente.CPF" type="text" class="form-control" name="CPF" placeholder="Informe o CPF do Paciente" />
             </div>
 
             <div class="form-group mb-4">
                 <label>Endereço</label>
-                <input @bind-value="_novoPaciente.Endereco" type="text" class="form-control" name="Endereco" placeholder="Informe o Endereço do Paciente" />
+                <input @bind="_novoPaciente.Endereco" type="text" class="form-control" name="Endereco" placeholder="Informe o Endereço do Paciente" />
             </div>
 
             <div class="form-group mb-4">
                 <label>Telefone</label>
-                <input @bind-value="_novoPaciente.Telefone" type="text" class="form-control" name="Telefone" placeholder="Informe o Telefone do Paciente" />
+                <input @bind="_novoPaciente.Telefone" type="text" class="form-control" name="Telefone" placeholder="Informe o Telefone do Paciente" />
             </div>
 
             <div class="form-group mb-4">
                 <label>Profissão</label>
-                <input @bind-value="_novoPaciente.Profissao" type="text" class="form-control" name="Profissao" placeholder="Informe a Profissão do Paciente" />
+                <input @bind="_novoPaciente.Profissao" type="text" class="form-control" name="Profissao" placeholder="Informe a Profissão do Paciente" />
             </div>
 
            <div class="form-group mb-4">
                 <label for="estadoCivil">Estado civil:</label>
-                <select id="estadoCivil" name="estadoCivil" required>
+                <select @bind="_novoPaciente.EstadoCivil" id="estadoCivil" name="estadoCivil" required>
                     <option value="" disabled selected>Selecione</option>
                     <option value="solteiro">Solteiro(a)</option>
                     <option value="casado">Casado(a)</option>
@@ -76,12 +76,12 @@
 
            <div class="form-group mb-4">
                 <label>E-mail</label>
-                <input @bind-value="_novoPaciente.Email" type="text" class="form-control" name="Email" placeholder="Informe o E-mail do Paciente" />
+                <input @bind="_novoPaciente.Email" type="text" class="form-control" name="Email" placeholder="Informe o E-mail do Paciente" />
            </div>
 
           <div class="form-group mb-4">
                 <label for="sexo">Sexo</label>
-                <select name="sexo" id="sexo">
+                <select @bind="_novoPaciente.Sexo" name="sexo" id="sexo">
                     <option value="" disabled selected>Selecione</option>
                     <option value="feminino">Feminino</option>
                     <option value="masculino">Masculino</option>
@@ -91,7 +91,7 @@
 
           <div class="form-group mb-4">
                 <label for="raca">Raça</label>
-                <select name="raca" id="raca">
+                <select @bind="_novoPaciente.Raca" name="raca" id="raca">
                     <option value="" disabled selected>Selecione</option>
                     <option value="branco">Branco(a)</option>
                     <option value="pardo">Pardo(a)</option>

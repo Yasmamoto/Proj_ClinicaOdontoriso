@@ -3,6 +3,10 @@ using ProjClinicaOdontoriso.Configs;
 using ProjClinicaOdontoriso.Models;
 using ProjClinicaOdontoriso.Models.Funcionario;
 using ProjClinicaOdontoriso.Models.Dentista;
+using ProjClinicaOdontoriso.Models.Paciente;
+{
+    
+}
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,4 +1,4 @@
-﻿namespace ProjClinicaOdontoriso.Models
+﻿namespace ProjClinicaOdontoriso.Models.Paciente
 {
     public class Paciente
     {
