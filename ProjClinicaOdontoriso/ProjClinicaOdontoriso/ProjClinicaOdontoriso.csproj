@@ -19,7 +19,6 @@
 
   <ItemGroup>
     <Folder Include="Models\Anamnese\" />
-    <Folder Include="wwwroot\Css\stylePaciente\" />
     <Folder Include="wwwroot\Img\" />
   </ItemGroup>
 

@@ -1,4 +1,5 @@
 ﻿@page "/GerenciarPaciente/novo"
+
 @rendermode InteractiveServer
 @using ProjClinicaOdontoriso.Models.Paciente;
 @inject PacienteDAO pacienteDAO;
@@ -6,6 +7,7 @@
 
 <PageTitle>Add - Paciente</PageTitle>
 <h1>Novo Paciente</h1>
+<link rel="stylesheet" href="Css/stylePaciente/StyleCadastopaciente.css">
 
 
 @if (erro != null)
@@ -16,8 +18,15 @@
 }
 
 <div class="row">
+    
+
     <div class="col">
          <EditForm Model="_novoPaciente" OnSubmit="Salvar">
+
+            <div class="voltar">
+                <button class="btn-voltar" @onclick="Voltar"> &#8592; Voltar</button>
+            </div>
+
             <div class="form-group mb-4">
                 <label>Nome</label>
                 <input @bind="_novoPaciente.Nome" type="text" class="form-control" name="nome" placeholder="Informe o nome do Paciente" />
@@ -101,7 +110,12 @@
                 </select>
           </div>
 
-            <button type="submit" class="btn btn-primary">Salvar</button>
+              <div class="form-buttons">
+                <button type="button" class="btn btn-editar">Editar</button>
+                <button type="submit" class="btn btn-salvar">Salvar</button>
+                <button type="button" class="btn btn-excluir">Excluir</button>
+             </div>
+            
 
         </EditForm>
         
@@ -113,7 +127,10 @@
     private string? erro = null;
     private Paciente _novoPaciente = new();
 
-
+    private void Voltar()
+    {
+        navigation.NavigateTo("/GerenciarPaciente");
+    }
     private void Salvar()
     {
         try
@@ -125,7 +142,12 @@
 
             pacienteDAO.InserirPac(_novoPaciente);
 
+            _novoPaciente = new Paciente();
+
+            erro = "Paciente salvo com sucesso!";
+
             navigation.NavigateTo("/GerenciarPaciente/novo");
+
         }
         catch (Exception ex)
         {

@@ -1,0 +1,98 @@
+﻿body {
+    background-color: #bfe7e1;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/*Título da pagina */
+h1 {
+    text-align: center;
+    color: #2d6e66;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+/*Novo Paciente*/
+
+.botao {
+    width: 90%;
+    margin: 20px auto 40px;
+    display: flex;
+    justify-content: flex-start;
+}
+.btn.btn-primary {
+    background-color: #ffffff;
+    border: 2px solid #85BEB4;
+    color: #2d6e66;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+    .btn.btn-primary:hover {
+        background-color: #85BEB4;
+        color: white;
+    }
+
+/*Estilo da tabela*/
+.table {
+    width: 90%;
+    margin: 0 auto 40px;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(133, 190, 180, 0.8);
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+}
+
+    .table thead {
+        background-color: #85BEB4;
+        color: white;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+        .table thead th {
+            padding: 12px 10px;
+        }
+
+    .table th,
+    .table td {
+        padding: 12px 10px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+        font-size: 0.95rem;
+    }
+
+    .table tbody tr:nth-child(even) {
+        background-color: #f2f9f8;
+    }
+
+    .table tbody tr:hover {
+        background-color: #e3f1ef;
+        transition: background-color 0.3s ease;
+    }
+
+@media (max-width: 768px) {
+    .table {
+        width: 95%;
+        font-size: 0.9rem;
+    }
+
+    .btn.btn-primary {
+        font-size: 0.9rem;
+        padding: 8px 14px;
+    }
+
+    .table th,
+    .table td {
+        padding: 10px 8px;
+    }
+}
