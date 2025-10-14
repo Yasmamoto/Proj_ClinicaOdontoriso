@@ -26,7 +26,7 @@ create table funcionario (
     escolaridade_fun varchar(50)
     );
 
-create table Dentista(
+create table dentista(
 id_dent int primary key auto_increment,
 nome_dent varchar(300),
 data_nascimento_den date,
@@ -54,7 +54,7 @@ especialidade_dent varchar(500),
 cnpj_dent varchar(30)
 );
 
-create table Procedimento(
+create table procedimento(
 id_pro int primary key auto_increment,
 nome_pro varchar(50),
 tempo_pro time,
@@ -63,7 +63,7 @@ valor_pro float
 );
 
 
-create table Paciente(
+create table paciente(
 id_pac int primary key auto_increment,
 nome_pac varchar(300),
 data_nascimento_pac date,
@@ -80,89 +80,89 @@ sexo_pac varchar(30),
 raca_pac varchar(30)
 );
 
-create table Consulta(
+create table consulta(
 id_con int primary key auto_increment,
 horario_con time,
 data_con date,
 id_pro_fk int,
-foreign key (id_pro_fk) references Procedimento (id_pro),
+foreign key (id_pro_fk) references procedimento (id_pro),
 id_pac_fk int,
-foreign key (id_pac_fk) references Paciente (id_pac),
+foreign key (id_pac_fk) references paciente (id_pac),
 id_dent_fk int,
-foreign key (id_dent_fk) references Dentista (id_dent)
+foreign key (id_dent_fk) references dentista (id_dent)
 );
 
 -- inserts de Funcionario e dentista
-INSERT INTO Funcionario (
+insert into funcionario (
     nome_fun, data_nascimento_fun, sexo_fun, cpf_fun, rg_fun, titulo_eleitor_fun, 
     raca_fun, email_fun, telefone_fun, nacionalidade_fun, estado_fun, cidade_fun, 
     endereco_fun, estado_civil_fun, cargo_fun, data_admissao_fun, salario_inicial_fun, 
     ctps_fun, recebe_salario_familia_fun, qtd_filhos_fun, escolaridade_fun) 
-VALUES('Maria Oliveira Santos', '1990-05-12', 'Feminino', '123.456.789-00', '45.678.901-2', '123456789012',
+values('Maria Oliveira Santos', '1990-05-12', 'Feminino', '123.456.789-00', '45.678.901-2', '123456789012',
     'Parda', 'maria.santos@email.com', '(11) 99999-8888', 'Brasileira', 'SP', 'São Paulo',
     'Rua das Flores, 120', 'Casada', 'Analista de RH', '2020-03-15', 4500.00,
     'CTPS12345', 'Sim', 2, 'Ensino Superior Completo');
-INSERT INTO Funcionario (
+insert into funcionario (
     nome_fun, data_nascimento_fun, sexo_fun, cpf_fun, rg_fun, titulo_eleitor_fun, 
     raca_fun, email_fun, telefone_fun, nacionalidade_fun, estado_fun, cidade_fun, 
     endereco_fun, estado_civil_fun, cargo_fun, data_admissao_fun, salario_inicial_fun, 
     ctps_fun, recebe_salario_familia_fun, qtd_filhos_fun, escolaridade_fun) 
-VALUES('João Pereira Lima', '1985-11-23', 'Masculino', '987.654.321-00', '12.345.678-9', '987654321000',
+values('João Pereira Lima', '1985-11-23', 'Masculino', '987.654.321-00', '12.345.678-9', '987654321000',
     'Branco', 'joao.lima@email.com', '(21) 98888-7777', 'Brasileiro', 'RJ', 'Niterói',
     'Av. Central, 45', 'Solteiro', 'Técnico em Informática', '2018-06-10', 3200.00,
     'CTPS54321', 'Não', 0, 'Ensino Médio Completo');
     
-    INSERT INTO Funcionario (
+   insert into funcionario (
     nome_fun, data_nascimento_fun, sexo_fun, cpf_fun, rg_fun, titulo_eleitor_fun, 
     raca_fun, email_fun, telefone_fun, nacionalidade_fun, estado_fun, cidade_fun, 
     endereco_fun, estado_civil_fun, cargo_fun, data_admissao_fun, salario_inicial_fun, 
     ctps_fun, recebe_salario_familia_fun, qtd_filhos_fun, escolaridade_fun) 
-    VALUES('Ana Beatriz Costa', '1998-02-09', 'Feminino', '321.654.987-00', '98.765.432-1', '456789123000',
+    values('Ana Beatriz Costa', '1998-02-09', 'Feminino', '321.654.987-00', '98.765.432-1', '456789123000',
     'Preta', 'ana.costa@email.com', '(31) 97777-6666', 'Brasileira', 'MG', 'Belo Horizonte',
     'Rua das Palmeiras, 200', 'Solteira', 'Assistente Administrativa', '2022-09-01', 2500.00,
     'CTPS98765', 'Sim', 1, 'Ensino Médio Completo');
     -- insert dent
-    INSERT INTO Dentista (
+    insert into dentista (
     nome_dent, data_nascimento_den, sexo_dent, cpf_dent, rg_dent, titulo_eleitor_dent, 
     raca_dent, nacionalidade_dent, estado_civil_dent, email_dent, telefone_dent, 
     estado_dent, cidade_dent, endereco_dent, data_admissao_dent, salario_inicial_dent, 
     ctps_dent, recebe_sala_fml_dent, qtd_filhos_dent, faculdade_dent, data_conclusao_dent, 
     cro_dent, especialidade_dent, cnpj_dent)
-VALUES ('Dr. Lucas Almeida Santos', '1985-07-20', 'Masculino', '123.456.789-01', 'MG-12.345.678', 
+values ('Dr. Lucas Almeida Santos', '1985-07-20', 'Masculino', '123.456.789-01', 'MG-12.345.678', 
     '1234567890/01', 'Pardo', 'Brasileira', 'Casado', 'lucas.santos@email.com', '(31) 99876-5432', 
     'MG', 'Belo Horizonte', 'Rua das Flores, 100, Centro', '2010-03-15', 5500.00, 
     '0123456 Série 0001', 'Não', 2, 'UFMG', '2008-12-10', 
     'MG-CRO-12345', 'Odontologia Estética e Implantodontia', '12.345.678/0001-90');
-    INSERT INTO Dentista (
+    insert into dentista (
     nome_dent, data_nascimento_den, sexo_dent, cpf_dent, rg_dent, titulo_eleitor_dent, 
     raca_dent, nacionalidade_dent, estado_civil_dent, email_dent, telefone_dent, 
     estado_dent, cidade_dent, endereco_dent, data_admissao_dent, salario_inicial_dent, 
     ctps_dent, recebe_sala_fml_dent, qtd_filhos_dent, faculdade_dent, data_conclusao_dent, 
     cro_dent, especialidade_dent, cnpj_dent)
-VALUES ('Dra. Camila Pires Oliveira', '1992-11-05', 'Feminino', '987.654.321-09', 'SP-98.765.432', 
+values ('Dra. Camila Pires Oliveira', '1992-11-05', 'Feminino', '987.654.321-09', 'SP-98.765.432', 
     '9876543210/09', 'Branca', 'Brasileira', 'Solteira', 'camila.oliveira@email.com', '(11) 99123-4567', 
     'SP', 'São Paulo', 'Av. Paulista, 500, Apto 10', '2018-08-01', 4800.00, 
     '9876543 Série 0009', 'Sim', 0, 'USP', '2016-12-15', 
     'SP-CRO-98765', 'Ortodontia', '98.765.432/0001-01');
     
 -- insert Paciente
-INSERT INTO paciente (nome_pac, data_nascimento_pac, idade_pac, local_nascimento_pac, rg_pac, cpf_pac,
+insert into paciente (nome_pac, data_nascimento_pac, idade_pac, local_nascimento_pac, rg_pac, cpf_pac,
     endereco_pac, telefone_pac, profissao_pac, estado_civil_pac, email_pac, sexo_pac, 
     raca_pac)
-VALUES
+values
 ( 'Laura Souza', '2012-07-15', 13, 'São Paulo', '45.678.901-3', '456.789.012-33',
  'Rua das Flores, 200', '(11) 97777-8888', 'Estudante', 'Solteira', 'laura.souza@email.com',
  'Feminino', 'Branca');
 -- inserts Procedimento e consulta
-INSERT INTO Procedimento (nome_pro, tempo_pro, descricao_pro, valor_pro)
-VALUES ('Limpeza Dental', '00:45:00', 'Procedimento de remoção de placas e tártaro para manutenção da saúde bucal.', 120.00);
-INSERT INTO Procedimento (nome_pro, tempo_pro, descricao_pro, valor_pro)
-VALUES ('Clareamento Dental', '01:30:00', 'Tratamento estético para clarear os dentes utilizando produtos específicos.', 350.00);
-INSERT INTO Procedimento (nome_pro, tempo_pro, descricao_pro, valor_pro)
-VALUES ('Extração de Dente', '00:40:00', 'Remoção de dente comprometido ou que causa desconforto ao paciente.', 200.00);
-INSERT INTO Consulta (horario_con, data_con, id_pro_fk)
-VALUES ('09:30:00', '2025-10-10', 1);
-INSERT INTO Consulta (horario_con, data_con, id_pro_fk)
-VALUES ('14:00:00', '2025-10-11', 2);
-INSERT INTO Consulta (horario_con, data_con, id_pro_fk)
-VALUES ('10:15:00', '2025-01-12', 3);
+insert into procedimento (nome_pro, tempo_pro, descricao_pro, valor_pro)
+values ('Limpeza Dental', '00:45:00', 'Procedimento de remoção de placas e tártaro para manutenção da saúde bucal.', 120.00);
+insert into procedimento (nome_pro, tempo_pro, descricao_pro, valor_pro)
+values ('Clareamento Dental', '01:30:00', 'Tratamento estético para clarear os dentes utilizando produtos específicos.', 350.00);
+insert into procedimento (nome_pro, tempo_pro, descricao_pro, valor_pro)
+values ('Extração de Dente', '00:40:00', 'Remoção de dente comprometido ou que causa desconforto ao paciente.', 200.00);
+insert into consulta (horario_con, data_con, id_pro_fk)
+values ('09:30:00', '2025-10-10', 1);
+insert into consulta (horario_con, data_con, id_pro_fk)
+values ('14:00:00', '2025-10-11', 2);
+insert into consulta (horario_con, data_con, id_pro_fk)
+values('10:15:00', '2025-01-12', 3);
