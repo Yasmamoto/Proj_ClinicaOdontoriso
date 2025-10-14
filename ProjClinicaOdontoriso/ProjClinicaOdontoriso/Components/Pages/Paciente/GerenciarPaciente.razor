@@ -1,24 +1,22 @@
 ﻿@page "/GerenciarPaciente"
-
+<h1>Pacientes</h1>
 @using ProjClinicaOdontoriso.Models.Paciente
 @inject PacienteDAO pacienteDAO
+@inject NavigationManager Navigation;
 
-<a href="/GerenciarPaciente/novo" class="btn btn-sm btn-primary">Novo Paciente</a>
+<link rel="stylesheet" href="Css/stylePaciente/StyleListaPaciente.css">
+
+
 
 <table class="table">
     <thead>
         <tr>
-            <th> Quantidade </th>
+            <th> # </th>
             <th>Nome</th>
-            <th>Data Nascimento</th>
             <th>Idade</th>
-            <th>Local de Nascimento</th>
             <th>RG</th>
             <th>CPF</th>
-            <th>Endereço</th>
             <th>Telefone</th>
-            <th>Profissão</th>
-            <th>Estado Civil</th>
             <th>E-mail</th>
             <th>Sexo</th>
             <th>Raça</th>
@@ -34,15 +32,10 @@
                 <tr>
                     <td>@contador</td>
                     <td>@paciente.Nome</td>
-                    <td>@paciente.DataNascimento</td>
                     <td>@paciente.Idade</td>
-                    <td>@paciente.LocalNascimento</td>
                     <td>@paciente.RG</td>
                     <td>@paciente.CPF</td>
-                    <td>@paciente.Endereco</td>
                     <td>@paciente.Telefone</td>
-                    <td>@paciente.Profissao</td>
-                    <td>@paciente.EstadoCivil</td>
                     <td>@paciente.Email</td>
                     <td>@paciente.Sexo</td>
                     <td>@paciente.Raca</td>
@@ -56,6 +49,9 @@
 
 </table>
 
+<div class="botao">
+    <a href="/GerenciarPaciente/novo" class="btn btn-sm btn-primary">Novo Paciente</a>
+</div>
 
 @code {
     private List<Paciente> listaPaciente = new();
