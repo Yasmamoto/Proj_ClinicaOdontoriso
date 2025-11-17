@@ -1,7 +1,12 @@
-﻿namespace ProjClinicaOdontoriso.Models.Paciente
+﻿using Microsoft.AspNetCore.Components;
+
+namespace ProjClinicaOdontoriso.Models.Paciente
 {
     public class Paciente
     {
+        private string erro = string.Empty;
+
+        [Parameter]
         public int Id { get; set; }
 
         public string? Nome { get; set; }
