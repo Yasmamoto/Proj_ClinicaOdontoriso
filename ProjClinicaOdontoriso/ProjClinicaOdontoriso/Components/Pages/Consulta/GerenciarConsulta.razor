@@ -18,6 +18,7 @@
             <th>#</th>
             <th>Horário</th>
             <th>Data</th>
+            <th>Ações</th>
         </tr>
     </thead>
 
@@ -30,6 +31,14 @@
                     <td>@contador</td>
                     <td>@consulta.Horario.ToString(@"hh\:mm")</td>
                     <td>@consulta.Data.ToString("dd/MM/yyyy")</td>
+                    <td>
+                        <a href="/consulta/@consulta.Id/editar" class="btn btn-sm btn-primary mr-2">
+                            <i class="fas fa-edit"></i> Atualizar
+                        </a>
+                        <a href="/consulta/@consulta.Id/excluir" class="btn btn-sm btn-danger">
+                            <i class="fas fa-trash"></i> Excluir
+                        </a>
+                    </td>
                 </tr>
 
                 contador++;
