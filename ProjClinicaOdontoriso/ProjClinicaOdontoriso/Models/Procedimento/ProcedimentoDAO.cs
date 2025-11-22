@@ -85,7 +85,7 @@ namespace ProjClinicaOdontoriso.Models
             try
             {
                 var comando = _conexao.CreateCommand(
-                    "UPDATE procedimento SET nome_pro = @_procedimento, tempo_pro = @_tempo, descricao_pro = @_descricao, valor_pro = @_valor WHERE id_pro = @_id;");
+                    "UPDATE procedimento SET nome_pro = @_nome, tempo_pro = @_tempo, descricao_pro = @_descricao, valor_pro = @_valor WHERE id_pro = @_id;");
 
                 comando.Parameters.AddWithValue("@_nome", procedimento.Nome);
                 comando.Parameters.AddWithValue("@_tempo", procedimento.Tempo);
