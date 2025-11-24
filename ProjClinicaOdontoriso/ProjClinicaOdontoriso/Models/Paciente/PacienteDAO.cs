@@ -142,13 +142,14 @@ namespace ProjClinicaOdontoriso.Models.Paciente
         {
             try
             {
-                var comando = _conexao.CreateCommand("DELETE * FROM cliente WHERE id_cli = @id_cli");
-                comando.Parameters.AddWithValue("@_id", id);
+                var comando = _conexao.CreateCommand(
+                "DELETE FROM paciente WHERE id_pac = @id;");
+
+                comando.Parameters.AddWithValue("@id", id);
 
                 comando.ExecuteNonQuery();
-
             }
-            catch (Exception)
+            catch
             {
                 throw;
             }
