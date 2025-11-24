@@ -1,0 +1,74 @@
+﻿@page "/procedimento/{Id:int}/excluir"
+@rendermode InteractiveServer
+
+@using ProjClinicaOdontoriso.Models;
+@inject ProcedimentoDAO procedimentoDAO;
+@inject NavigationManager Navigation;
+
+<PageTitle>Procedimento</PageTitle>
+
+<h1 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-6">Exclusão de Procedimento</h1>
+
+@if (erro != string.Empty)
+{
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4" role="alert">
+        <strong class="font-bold">Erro!</strong>
+        <span class="block sm:inline">@erro</span>
+    </div>
+}
+
+
+<EditForm Model="procedimento" OnSubmit="Excluir">
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4" role="alert">
+        <strong class="font-bold">Atenção!</strong>
+        <span class="block sm:inline">Esta ação não pode ser desfeita.</span>
+
+
+        <p class="text-lg">Tem certeza que deseja excluir a procedimento <strong>@procedimento.Nome</strong>?</p>
+    </div>
+
+
+    <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded mt-2">Excluir</button>
+    <a href="/Gerenciar Procedimento" class="bg-gray-500 text-white px-4 py-2 rounded mt-2">Cancelar</a>
+
+</EditForm>
+
+@code {
+
+    private string erro = string.Empty;
+
+    [Parameter]
+    public int Id { get; set; }
+
+    [SupplyParameterFromForm]
+    private Procedimento procedimento { get; set; } = new();
+
+    protected override void OnInitialized()
+    {
+        var _procedimento = procedimentoDAO.BuscarPorId(Id);
+
+        if (_procedimento != null)
+        {
+            procedimento = _procedimento;
+        }
+        else
+        {
+            erro = "Procedimento não encontrada.";
+        }
+    }
+
+    private void Excluir()
+    {
+        try
+        {
+            procedimentoDAO.Excluir(procedimento.Id);
+
+            Navigation.NavigateTo("/Gerenciar Procedimento");
+        }
+        catch (Exception ex)
+        {
+            erro = $"Erro ao excluir a procedimento: {ex.Message}";
+        }
+
+    }
+}

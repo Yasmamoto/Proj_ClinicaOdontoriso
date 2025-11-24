@@ -95,5 +95,21 @@ namespace ProjClinicaOdontoriso.Models
             }
         }
 
+        public void Excluir(int id)
+        {
+            try
+            {
+                var comando = _conexao.CreateCommand(
+                "DELETE FROM consulta WHERE id_con = @id;");
+
+                comando.Parameters.AddWithValue("@id", id);
+
+                comando.ExecuteNonQuery();
+            }
+            catch
+            {
+                throw;
+            }
+        }
     }
 }
