@@ -1,0 +1,214 @@
+﻿
+@page "/dentista/{ID:int}/atualizar"
+@rendermode InteractiveServer
+
+@using ProjClinicaOdontoriso.Models.Dentista;
+@inject DentistaDAO dentistaDAO;
+@inject NavigationManager Navigation;
+
+<pageTitle>Atualizar Dentista</pageTitle>
+<h1 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-6">Atualização Dentista - @dentista.Nome</h1>
+
+@if (erro != string.Empty)
+{
+<div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4" role="alert">
+    <strong class="font-bold">Erro!</strong>
+    <span class="block sm:inline">@erro</span>
+</div>
+}
+
+<EditForm Model="_novoDentista" OnSubmit="Salvar">
+
+    <div class="form-group mb-4">
+        <label for="nome_fu">Nome:</label>
+        <input @bind="_novoDentista.Nome" type="text" class="form-control" id="nome_fu" />
+    </div>
+
+    <div class="form-group mb-4">
+        <label for="data_nasc_fu">Data de Nascimento:</label>
+        <input @bind="_novoDentista.DataNascimento" type="date" class="form-control" id="data_nasc_fu" />
+    </div>
+
+
+    <div class="form-group mb-4">
+        <label for="sexo">Sexo:</label>
+        <select @bind="_novoDentista.Sexo" class="form-control" id="sexo">
+            <option value="" disabled>Selecione</option>
+            <option value="feminino">Feminino</option>
+            <option value="masculino">Masculino</option>
+        </select>
+    </div>
+
+    <div class="form-group mb-4">
+        <label for="cpf_fu">CPF:</label>
+        <input @bind="_novoDentista.CPF" type="text" class="form-control" id="cpf_fu" />
+    </div>
+
+    <div class="form-group mb-4">
+        <label for="rg_fu">RG:</label>
+        <input @bind="_novoDentista.RG" type="text" class="form-control" id="rg_fu" />
+    </div>
+
+    <div class="form-group mb-4">
+        <label for="titulo">Título de Eleitor:</label>
+        <input @bind="_novoDentista.TituloEleitor" type="text" class="form-control" id="titulo" />
+    </div>
+
+    <div class="form-group mb-4">
+        <label for="raca">Raça:</label>
+        <select @bind="_novoDentista.Raca" class="form-control" id="raca">
+            <option value="" disabled>Selecione</option>
+            <option value="branco">Branco(a)</option>
+            <option value="pardo">Pardo(a)</option>
+            <option value="preto">Preto(a)</option>
+            <option value="amarelo">Amarelo(a)</option>
+            <option value="vermelho">Vermelho(a)</option>
+        </select>
+    </div>
+
+    <div class="form-group mb-4">
+        <label for="nacionalidade">Nacionalidade:</label>
+        <input @bind="_novoDentista.Nacionalidade" type="text" class="form-control" id="nacionalidade" />
+    </div>
+
+    <div class="form-group mb-4">
+        <label for="estadoCivil">Estado Civil:</label>
+        <select @bind="_novoDentista.EstadoCivil" class="form-control" id="estadoCivil">
+            <option value="" disabled>Selecione</option>
+            <option value="solteiro">Solteiro(a)</option>
+            <option value="casado">Casado(a)</option>
+            <option value="separado">Separado(a)</option>
+            <option value="divorciado">Divorciado(a)</option>
+            <option value="viuvo">Viúvo(a)</option>
+        </select>
+    </div>
+
+    <div class="form-group mb-4">
+        <label for="email_fu">E-mail:</label>
+        <input @bind="_novoDentista.Email" type="email" class="form-control" id="email_fu" />
+    </div>
+
+    <div class="form-group mb-4">
+        <label for="telefone_fu">Telefone:</label>
+        <input @bind="_novoDentista.Telefone" type="text" class="form-control" id="telefone_fu" />
+    </div>
+
+    <div class="form-group mb-4">
+        <label for="estado">Estado:</label>
+        <select @bind="_novoDentista.Estado" class="form-control" id="estado">
+            <option value="" disabled>Selecione</option>
+            <option value="AC">AC</option>
+            <option value="AL">AL</option>
+            <option value="AP">AP</option>
+            <option value="AM">AM</option>
+            <option value="BA">BA</option>
+            <option value="CE">CE</option>
+            <option value="DF">DF</option>
+            <option value="ES">ES</option>
+            <option value="GO">GO</option>
+            <option value="MA">MA</option>
+            <option value="MT">MT</option>
+            <option value="MS">MS</option>
+            <option value="MG">MG</option>
+            <option value="PA">PA</option>
+            <option value="PB">PB</option>
+            <option value="PR">PR</option>
+            <option value="PE">PE</option>
+            <option value="PI">PI</option>
+            <option value="RJ">RJ</option>
+            <option value="RN">RN</option>
+            <option value="RS">RS</option>
+            <option value="RO">RO</option>
+            <option value="RR">RR</option>
+            <option value="SC">SC</option>
+            <option value="SP">SP</option>
+            <option value="SE">SE</option>
+            <option value="TO">TO</option>
+        </select>
+    </div>
+
+    <div class="form-group mb-4">
+        <label for="cidade">Cidade:</label>
+        <input @bind="_novoDentista.Cidade" type="text" class="form-control" id="cidade" />
+    </div>
+
+    <div class="form-group mb-4">
+        <label for="endereco">Endereço:</label>
+        <input @bind="_novoDentista.Endereco" type="text" class="form-control" id="endereco" />
+    </div>
+
+
+    <div class="form-group mb-4">
+        <label for="dataadim">Data de Admissão:</label>
+        <input @bind="_novoDentista.DataAdmissao" type="date" class="form-control" id="dataadim" />
+    </div>
+
+    <div class="form-group mb-4">
+        <label for="salario">Salário Inicial:</label>
+        <input @bind="_novoDentista.SalarioInicial" type="number" step="0.01" class="form-control" id="salario" />
+    </div>
+
+
+    <div class="form-group mb-4">
+        <label for="ctps">Carteira de Trabalho (CTPS):</label>
+        <input @bind="_novoDentista.CTPS" type="text" class="form-control" id="ctps" />
+    </div>
+
+
+    <div class="form-group mb-4">
+        <label for="salafamilia">Recebe salário família?</label>
+        <select @bind="_novoDentista.RecebeSalarioFamilia" class="form-control" id="salafamilia">
+            <option value="" disabled>Selecione</option>
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+        </select>
+    </div>
+
+    <div class="form-group mb-4">
+        <label for="quatfilho">Quantidade de filhos (menores de 14 ou inválidos):</label>
+        <input @bind="_novoDentista.QuantidadeFilhos" type="number" class="form-control" id="quatfilho" />
+    </div>
+
+    <div class="form-group mb-4">
+        <label for="faculdade">Universidade/Faculdade</label>
+        <input @bind="_novoDentista.Faculdade" type="text" class="form-control" id="faculdade" />
+    </div>
+    <div class="form-group mb-4">
+        <label for="dataconclusao">Data de Conclusão</label>
+        <input @bind="_novoDentista.DataConclusao" type="date" class="form-control" id="dataconclusao" />
+    </div>
+    <div class="form-group mb-4">
+        <label for="cro">CRO:</label>
+        <input @bind="_novoDentista.CRO" type="text" class="form-control" id="cro" />
+    </div>
+    <div class="form-group mb-4">
+        <label for="especialidade">Especialidade:</label>
+        <input @bind="_novoDentista.Especialidade" type="text" class="form-control" id="especialidade" />
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</EditForm>
+
+@code {
+    private string? erro = null;
+
+
+    [SupplyParameterFromForm]
+    private Dentista _novoDentista { get; set; } = new();
+
+    private void Salvar()
+    {
+        try
+        
+        {
+            dentistaDAO.AtualizarDentis(_novoDentista);
+
+            Navigation.NavigateTo("/GerenciarDentista");
+        }
+        catch (Exception ex)
+        {
+            // Exibe a mensagem de erro na tela
+            erro = ex.Message;
+            StateHasChanged();
+        }
+    }
+}

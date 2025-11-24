@@ -19,22 +19,33 @@
 			<th>Carteira de Trabalho</th>
 			<th>CRO</th>
 			<th>Especialidade</th>
+			<th>Atualizar</th>
 		</tr>
 	</thead>
 	<tbody>
-		@foreach (var dentista in listardentista)
-		{
-			<tr>
-				<td>@dentista.Id</td>
-				<td>@dentista.Nome</td>
-				<td>@dentista.CPF</td>
-				<td>@dentista.DataAdmissao</td>
-				<td>@dentista.SalarioInicial</td>
-				<td>@dentista.CTPS</td>
-				<td>@dentista.CRO</td>
-				<td>@dentista.Especialidade</td>
-			</tr>
+		@{
+			int contador = 1;
+			@foreach (var dentista in listardentista)
+			{
+				<tr>
+					<td>@dentista.Id</td>
+					<td>@dentista.Nome</td>
+					<td>@dentista.CPF</td>
+					<td>@dentista.DataAdmissao</td>
+					<td>@dentista.SalarioInicial</td>
+					<td>@dentista.CTPS</td>
+					<td>@dentista.CRO</td>
+					<td>@dentista.Especialidade</td>
+					<td> <a href="/dentista/@dentista.Id/atualizar" class="btn btn-sm btn-primary mr-2">
+							<i class="fas fa-edit"></i> Atualizar
+					</a>
+					</td>
+				</tr>
+				contador++;
+			}
+		
 		}
+		
 	</tbody>
 </table>
 
