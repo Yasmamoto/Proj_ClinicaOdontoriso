@@ -7,7 +7,7 @@
 @inject NavigationManager Navigation;
 
 <pageTitle>Atualizar Dentista</pageTitle>
-<h1 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-6">Atualização Dentista - @dentista.Nome</h1>
+<h1 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-6">Atualização Dentista - @_novoDentista.Nome</h1>
 
 @if (erro != string.Empty)
 {
@@ -194,6 +194,22 @@
 
     [SupplyParameterFromForm]
     private Dentista _novoDentista { get; set; } = new();
+
+    [Parameter]
+    public int Id { get; set; }
+
+    protected override void OnInitialized()
+    {
+        var dentista = dentistaDAO.BuscarIdDenti(Id);
+        if(_novoDentista !=null)
+        {
+            _novoDentista = dentista;
+        }
+        else
+        {
+			erro = "Não encontramos esse dentista no nosso sistema. Verifique se esse Id está correto";
+        }
+    }
 
     private void Salvar()
     {
