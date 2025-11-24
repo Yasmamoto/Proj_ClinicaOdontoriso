@@ -114,8 +114,9 @@ namespace ProjClinicaOdontoriso.Models.Paciente
             try
             {
                 var comando = _conexao.CreateCommand(
-                 "UPDATE paciente set nome_pac = @_nome, data_nascimento_pac = @_dataNascimento, idade_pac = @_idade, local_nascimento_pac =  @_localNascimento, rg_pac = @_rg, cpf_pac = @_cpf,endereco_pac = @_endereco, telefone_pac = @_telefone, profissao_pac = @_profissao,estado_civil_pac = @_estadoCivil,email_pac = @_email, sexo_pac = @_sexo, raca_pac = @_raca;");
+                 "UPDATE paciente SET nome_pac = @_nome, data_nascimento_pac = @_data_nascimento, idade_pac = @_idade, local_nascimento_pac =  @_localNascimento, rg_pac = @_rg, cpf_pac = @_cpf, endereco_pac = @_endereco, telefone_pac = @_telefone, profissao_pac = @_profissao, estado_civil_pac = @_estadoCivil, email_pac = @_email, sexo_pac = @_sexo, raca_pac = @_raca WHERE id_pac = @_id;");
 
+                comando.Parameters.AddWithValue("@_id", paciente.Id);
                 comando.Parameters.AddWithValue("@_nome", paciente.Nome);
                 comando.Parameters.AddWithValue("@_data_nascimento", paciente.DataNascimento.ToDateTime(TimeOnly.MinValue));
                 comando.Parameters.AddWithValue("@_idade", paciente.Idade);
@@ -133,6 +134,21 @@ namespace ProjClinicaOdontoriso.Models.Paciente
                 comando.ExecuteNonQuery();
             }
             catch
+            {
+                throw;
+            }
+        }
+        public void Excluir(int id)
+        {
+            try
+            {
+                var comando = _conexao.CreateCommand("DELETE * FROM cliente WHERE id_cli = @id_cli");
+                comando.Parameters.AddWithValue("@_id", id);
+
+                comando.ExecuteNonQuery();
+
+            }
+            catch (Exception)
             {
                 throw;
             }

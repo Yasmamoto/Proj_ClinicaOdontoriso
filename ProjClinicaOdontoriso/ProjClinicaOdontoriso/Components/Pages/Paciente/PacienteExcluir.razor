@@ -1,4 +1,4 @@
-﻿@page "/GerenciarPaciente/{Id:int}/editar"
+﻿@* @page "/GerenciarPaciente/{Id:int}/excluir"
 
 @rendermode InteractiveServer
 @using ProjClinicaOdontoriso.Models.Paciente;
@@ -17,11 +17,11 @@
     </div>
 }
 
-<EditForm Model="_novoPaciente" OnSubmit="Salvar">
+<EditForm Model="_novoPaciente" OnSubmit="Excluir">
 
     <div class="form-group mb-4">
         <label>Nome</label>
-        <input @bind="_novoPaciente.Nome" type="text" class="form-control" name="nome" placeholder="Informe o nome do Paciente"/>
+        <input @bind="_novoPaciente.Nome" type="text" class="form-control" name="nome" placeholder="Informe o nome do Paciente" />
     </div>
 
     <div class="form-group mb-4">
@@ -70,7 +70,7 @@
     </div>
 
 
-    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Salvar</button>
+    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Excluir</button>
 
 </EditForm>
 
@@ -97,19 +97,4 @@
             erro = "Produto não encontrado.";
         }
     }
-
-    private void Salvar()
-    {
-        try
-        {
-            pacienteDAO.Atualizar(_novoPaciente);
-
-            Navigation.NavigateTo("/GerenciarPaciente");
-        }
-        catch (Exception ex)
-        {
-            erro = $"Erro ao salvar o paciente: {ex.Message}";
-        }
-
-    }
-}
+} *@
