@@ -1,0 +1,74 @@
+﻿@page "/GerenciarPaciente/{Id:int}/excluir"
+@rendermode InteractiveServer
+
+@using ProjClinicaOdontoriso.Models.Paciente;
+@inject PacienteDAO pacienteDAO;
+@inject NavigationManager Navigation;
+
+<PageTitle>Paciente</PageTitle>
+
+<h1 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-6">Exclusão de Paciente</h1>
+
+@if (erro != string.Empty)
+{
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4" role="alert">
+        <strong class="font-bold">Erro!</strong>
+        <span class="block sm:inline">@erro</span>
+    </div>
+}
+
+
+<EditForm Model="paciente" OnSubmit="Excluir">
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4" role="alert">
+        <strong class="font-bold">Atenção!</strong>
+        <span class="block sm:inline">Esta ação não pode ser desfeita.</span>
+
+
+        <p class="text-lg">Tem certeza que deseja excluir o paciente <strong>@paciente.Nome</strong>?</p>
+    </div>
+
+
+    <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded mt-2">Excluir</button>
+    <a href="/GerenciarPaciente" class="bg-gray-500 text-white px-4 py-2 rounded mt-2">Cancelar</a>
+
+</EditForm>
+
+@code {
+
+    private string erro = string.Empty;
+
+    [Parameter]
+    public int Id { get; set; }
+
+    [SupplyParameterFromForm]
+    private Paciente paciente { get; set; } = new();
+
+    protected override void OnInitialized()
+    {
+        var _paciente = pacienteDAO.BuscarPorId(Id);
+
+        if (_paciente != null)
+        {
+            paciente = _paciente;
+        }
+        else
+        {
+            erro = "Paciente não encontrado.";
+        }
+    }
+
+    private void Excluir()
+    {
+        try
+        {
+            pacienteDAO.Excluir(paciente.Id);
+
+            Navigation.NavigateTo("/GerenciarPaciente");
+        }
+        catch (Exception ex)
+        {
+            erro = $"Erro ao excluir o paciente: {ex.Message}";
+        }
+
+    }
+}
