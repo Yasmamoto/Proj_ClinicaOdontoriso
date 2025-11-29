@@ -7,7 +7,9 @@
 
 <PageTitle>Procedimento</PageTitle>
 
-<h1 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-6">Atualização Procedimento - @procedimento.Nome</h1>
+<link rel="stylesheet" href="/Css/styleProcedimento/StyleEditarProcedimento.css">
+
+<h1>Atualização Procedimento - @procedimento.Nome</h1>
 
 @if (erro != string.Empty)
 {
@@ -18,28 +20,29 @@
 }
 
 <EditForm Model="procedimento" OnSubmit="Salvar">
-    <div class="mb-4">
-        <label for="nome" class="block text-sm font-medium text-gray-700">Nome</label>
-        <input @bind-value="procedimento.Nome" type="text" id="nome"
-               class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" />
+    <div class="form-group">
+        <label>Nome</label>
+        <input @bind-value="procedimento.Nome" type="text" id="nome" class="form-control" />
     </div>
-    <div class="mb-4">
-        <label for="tempo" class="block text-sm font-medium text-gray-700">Tempo</label>
-        <input @bind-value="procedimento.Tempo" type="text" id="Tempo"
-               class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" />
+    <div class="form-group">
+        <label>Tempo</label>
+        <input @bind-value="procedimento.Tempo" type="time" id="Tempo" class="form-control" />
     </div>
-    <div class="mb-4">
-        <label for="valor" class="block text-sm font-medium text-gray-700">Valor</label>
-        <input @bind-value="procedimento.Valor" type="text" id="valor"
-               class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" />
+    <div class="form-group">
+        <label>Valor</label>
+        <input @bind-value="procedimento.Valor" type="text" id="valor" class="form-control" />
     </div>
 
-    <div class="mb-4">
-        <label for="descricao" class="block text-sm font-medium text-gray-700">Descricao</label>
-        <input @bind-value="procedimento.Descricao" type="text" id="descricao"
-               class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" />
+    <div class="form-group">
+        <label>Descricao</label>
+        <input @bind-value="procedimento.Descricao" type="text" id="descricao" class="form-control" />
     </div>
-    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Salvar</button>
+
+    <div class="form-buttons">
+        <button type="button" class="btn-voltar" @onclick="@(() => Navigation.NavigateTo("/Gerenciar Procedimento"))">Voltar</button>
+        <button type="submit" class="btn-primary">Salvar</button>
+    </div>
+
 </EditForm>
 
 @code {

@@ -1,0 +1,89 @@
+﻿body {
+    background-color: #85BEB4;
+    font-family: "Poppins", sans-serif;
+}
+
+h1 {
+    color: #074B35;
+    font-weight: 200;
+    margin-bottom: 30px;
+}
+
+form {
+    background-color: #78B1AC;
+    padding: 40px 60px;
+    border-radius: 20px;
+    width: 70vw;
+    min-height: 70vh;
+    height: auto;
+    margin: 40px auto;
+}
+
+.form-group {
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #074B35;
+    margin-bottom: 8px;
+    font-style: italic;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+}
+
+
+input[type="time"], input[type="date"], input[type="text"] {
+    width: 100%;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    background-color: #85BEB4;
+    font-size: 1rem;
+    color: #0c2f29;
+    outline: none;
+}
+
+button {
+    font-size: 1.1rem;
+    padding: 10px 35px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #004f3a;
+    color: #fff;
+    float: right;
+}
+
+    .btn-primary:hover {
+        background-color: #01382a;
+    }
+
+.btn-voltar {
+    background-color: #b5e3da;
+    color: #074B35;
+    border: 1px solid #0c2f29;
+    float: left;
+}
+
+    .btn-voltar:hover {
+        background-color: #a1d7cb;
+    }
+
+input[type="time"]:focus, input[type="date"]:focus {
+    outline: none !important;
+    background-color: #85BEB4;
+    border: 2px solid #074B35;
+    box-shadow: 0 0 8px rgba(7, 75, 53, 0.4);
+}

@@ -8,7 +8,7 @@
 
 <PageTitle>Procedimentos</PageTitle>
 
-<link rel="stylesheet" href="Css/styleProcedimento/StyleListarProcedimento.css">
+<link rel="stylesheet" href="/Css/styleProcedimento/StyleListarProcedimento.css">
 
 <h1>Procedimentos</h1>
 
@@ -20,6 +20,7 @@
             <th>Tempo</th>
             <th>Descrição</th>
             <th>Valor</th>
+            <th>Ações</th>
         </tr>
     </thead>
 
@@ -28,10 +29,11 @@
             int contador = 1;
             @foreach (var procedimento in listaProcedimentos)
             {
+
                 <tr>
                     <td>@contador</td>
                     <td>@procedimento.Nome</td>
-                    <td>@procedimento.Tempo.ToString(@"hh\:mm")</td>
+                    <td>@procedimento.Tempo.ToString("HH:mm")</td>
                     <td>@procedimento.Descricao</td>
                     <td>@procedimento.Valor</td>
                     <td>

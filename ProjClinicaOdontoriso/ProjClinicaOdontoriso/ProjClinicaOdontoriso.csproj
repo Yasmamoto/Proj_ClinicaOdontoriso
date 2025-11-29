@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <Folder Include="Models\Anamnese\" />
-    <Folder Include="wwwroot\Img\" />
+    <Folder Include="wwwroot\Css\styleProcedimento\Img\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -7,7 +7,9 @@
 
 <PageTitle>Consulta</PageTitle>
 
-<h1 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-6">Atualização Consulta - @consulta.Data</h1>
+<link rel="stylesheet" href="/Css/styleConsulta/StyleEditarConsulta.css">
+
+<h1>Atualização Consulta - @consulta.Data</h1>
 
 @if (erro != string.Empty)
 {
@@ -18,17 +20,18 @@
 }
 
 <EditForm Model="consulta" OnSubmit="Salvar">
-    <div class="mb-4">
-        <label for="horario" class="block text-sm font-medium text-gray-700">Horario</label>
-        <input @bind-value="consulta.Horario" type="text" id="horario"
-               class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" />
+    <div class="form-group">
+        <label>Horario</label>
+        <input @bind-value="consulta.Horario" type="time" class="form-control" name="horario" />
     </div>
-    <div class="mb-4">
-        <label for="data" class="block text-sm font-medium text-gray-700">Data</label>
-        <input @bind-value="consulta.Data" type="text" id="data"
-               class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" />
+    <div class="form-group">
+        <label>Data</label>
+        <input @bind-value="consulta.Data" type="date" class="form-control" name="data" />
     </div>
-    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Salvar</button>
+    <div class="form-buttons">
+        <button type="button" class="btn-voltar" @onclick="@(() => Navigation.NavigateTo("/Gerenciar Consulta"))">Voltar</button>
+        <button type="submit" class="btn-primary">Salvar</button>
+    </div>
 </EditForm>
 
 @code {
